@@ -9,14 +9,15 @@
 	<body>
 		<div th:replace="~{fragments/navbar :: navbar}"></div>
 		<h1>A Dreadful Registration</h1>
+		<section class="warning">
+			<h2>WARNING</h2>
+			<p>Do not provide your real name in this forum under any circumstance</p>
+		</section>
 		<section>
 			<form th:action="@{/register}" method="post">
-
 				<div>
-					Name: <span><input type="text" th:field="${newUser.name}"></span>
+					Nickname: <span><input type="text" th:field="${newUser.nickname}"></span>
 					<!--<p th:if="${#fields.hasErrors('name')}" th:errors="${newUser.name}"></p>-->
-					Surname: <span><input type="text" th:field="${newUser.surname}"></span>
-					<!--<p th:if="${#fields.hasErrors('surname')}" th:errors="${newUser.surname}"></p>-->
 					Email: <span><input type="email" th:field="${newUser.email}"></span>
 				<!--	<p th:if="${#fields.hasErrors('email')}" th:errors="${newUser.email}"></p>-->
 				</div>

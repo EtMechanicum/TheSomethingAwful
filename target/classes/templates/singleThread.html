@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Something Awful</title>
+	</head>
+	<body>
+		<div th:replace="~{/fragments/navbar :: navbar}"></div>
+		<hr>
+		<main>
+			<h1 th:text="${thread.title}">Thread</h1>
+			<hr>
+			<section class="posts-container">
+				<p th:if="${#lists.isEmpty(thread.posts)}">No replies yet</p>	
+				  <ul class="post-list">
+				    <li th:each="post : ${thread.posts}">
+				        <p th:text="${post.content}"></p>
+						<span th:text="|${post.postType} (user: ${post.nickname})|"></soan>
+						<hr>
+				    </li>
+				  </ul>
+			</section>
+			<hr>
+			<section class="newReply">
+				<h2>Reply to this thread</h2>
+				<form th:action="@{/threads/{id}/posts/new(id=${thread.id})}" method="post">
+					<label> Reply
+						<textarea name="postContent"></textarea>
+					</label>
+					<button>Post</button>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>

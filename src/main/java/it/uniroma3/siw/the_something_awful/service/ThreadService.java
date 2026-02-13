@@ -19,4 +19,8 @@ public class ThreadService {
 	public void saveThread(Thread thread) {
 		tr.save(thread);
 	}
+	
+	public Thread getThreadById(Long id) {
+		return tr.findById(id).get();
+	}
 }

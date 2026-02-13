@@ -27,10 +27,10 @@
 				    <li th:each="thread : ${category.threads}">
 				      <h2>
 				        <a th:href="@{/threads/{id}(id=${thread.id})}"
-				           th:text="${thread.title}"></a>
+				           th:text="${thread.title}">
+					    </a>
 				      </h2>	 
-				      <span>
-				        <span th:text="${#lists.size(thread.posts)}"></span> posts
+				      <span th:text="${#lists.size(thread.posts)}"></span> posts
 				    </li>
 				  </ul>
 			</section>
