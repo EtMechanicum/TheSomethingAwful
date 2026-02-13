@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Something Awful</title>
+	</head>
+	<body>
+		<div th:replace="~{/fragments/navbar :: navbar}"></div>
+		<hr>
+		<main>
+			<h1>The Something Awful</h1>
+			<section class="category-container">
+				<p th:if="${#lists.isEmpty(categories)}">No categories to show</p>	
+				  <ul class="category-list">
+				    <li th:each="cat : ${categories}">
+				      <h2>
+				        <a th:href="@{/categories/{id}(id=${cat.id})}"
+				           th:text="${cat.name}"></a>
+				      </h2>	
+				      <p th:text="${cat.description}"></p>	
+				      <span>
+				        <span th:text="${#lists.size(cat.threads)}"></span> threads
+				      </span>
+				    </li>
+				  </ul>
+			</section>
+		</main>
+	</body>
+</html>

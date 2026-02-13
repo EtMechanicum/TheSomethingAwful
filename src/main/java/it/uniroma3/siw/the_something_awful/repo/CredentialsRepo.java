@@ -1,0 +1,15 @@
+package it.uniroma3.siw.the_something_awful.repo;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+
+import it.uniroma3.siw.the_something_awful.model.Credentials;
+
+
+public interface CredentialsRepo extends CrudRepository<Credentials, Long>{
+	public Optional<Credentials> findByUsername(String username);
+	
+	public Credentials findByUserId(Long id);
+
+}
