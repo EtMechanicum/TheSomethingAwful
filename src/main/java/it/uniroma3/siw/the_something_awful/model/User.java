@@ -23,9 +23,9 @@ public class User {
 	@OneToOne
 	private Credentials credentials;
 	@OneToMany(mappedBy = "author")
-	private List<Post> posts;
+	private List<Post> posts = new ArrayList<Post>();
 	@OneToMany(mappedBy = "createdBy")
-	private List<Thread> threads;
+	private List<Thread> threads = new ArrayList<Thread>();
 	@OneToMany(mappedBy = "certifiedBy")
 	private List<Creature> certifiedCreatures = new ArrayList<>();
 	

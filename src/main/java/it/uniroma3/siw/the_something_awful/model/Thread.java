@@ -1,6 +1,7 @@
 package it.uniroma3.siw.the_something_awful.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -18,7 +19,7 @@ public class Thread {
 	private Long id;
 	private String title;
 	//private Category 
-	private LocalDate createdAt;
+	private LocalDateTime createdAt;
 	private boolean isOfficial;
 	@ManyToOne
 	@JoinColumn(name = "author_id")
@@ -27,7 +28,7 @@ public class Thread {
 	@JoinColumn(name = "category_id")
 	private Category category;
 	@OneToMany(mappedBy = "thread", cascade = CascadeType.ALL)
-	private List<Post> posts;
+	private List<Post> posts = new ArrayList<Post>();
 	
 	public Thread() {}
 
@@ -47,11 +48,11 @@ public class Thread {
 		this.title = title;
 	}
 
-	public LocalDate getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDate createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
@@ -77,6 +78,14 @@ public class Thread {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 	
 }

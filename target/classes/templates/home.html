@@ -13,7 +13,7 @@
 				  <ul class="category-list">
 				    <li th:each="cat : ${categories}">
 				      <h2>
-				        <a th:href="@{/categories/{id}(id=${cat.id})}"
+				        <a th:href="@{/category/{id}/threads(id=${cat.id})}"
 				           th:text="${cat.name}"></a>
 				      </h2>	
 				      <p th:text="${cat.description}"></p>	

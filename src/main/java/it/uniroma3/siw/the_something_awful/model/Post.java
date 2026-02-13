@@ -1,5 +1,7 @@
 package it.uniroma3.siw.the_something_awful.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,16 +11,20 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Post {
+	public static final String OP = "op";
+	public static final String REPLY = "reply";
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String content;
+	private LocalDateTime createdAt;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
 	@ManyToOne
 	@JoinColumn(name = "thread_id")
 	private Thread thread;
+	private String postType;
 	
 	public Post() {}
 
@@ -52,6 +58,22 @@ public class Post {
 
 	public void setThread(Thread thread) {
 		this.thread = thread;
+	}
+
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getPostType() {
+		return postType;
+	}
+
+	public void setPostType(String postType) {
+		this.postType = postType;
 	}
 	
 	

@@ -1,8 +1,20 @@
 <header th:fragment="navbar">
 	<nav>
-		<a href="#">[Home]</a>
-		<a href="#">[Threads]</a>
-		<a href="#">[M.O.N.O. Files]</a>
-		<a href="#">[About]</a>
+		<div class="links">
+			<a href="/">[Home]</a>
+			<a href="#">[Threads]</a>
+			<a href="#">[M.O.N.O. Files]</a>
+			<a href="#">[About]</a>
+		</div>
+		<div class="user">
+			<a th:if="${userDetails}" th:text="${userDetails.username}" th:href="@{/users/{username}(username=${userDetails.username})}">Username</a>
+			<a th:unless="${userDetails}" href="/register">Register</a>
+		</div>
+		<div class="login">
+			<form th:if="${userDetails}" th:action="@{/logout}" method="post">
+				<button type="submit">Logout</button>
+			</form>
+			<a th:unless="${userDetails}" href="/login">Login</a>
+		</div>
 	</nav>
 </header>
