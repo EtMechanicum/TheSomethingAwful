@@ -14,13 +14,15 @@
 				  <ul class="post-list">
 				    <li th:each="post : ${thread.posts}">
 				        <p th:text="${post.content}"></p>
-						<span th:text="|${post.postType} (user: ${post.nickname})|"></soan>
+						<span th:text="|${post.postType} (user: ${post.author.nickname})|"></soan>
 						<hr>
 				    </li>
 				  </ul>
 			</section>
 			<hr>
-			<section class="newReply">
+			<p th:if="${thread.status.name() == 'CLOSED' }">This thread has been closed</p>
+			<p th:if="${thread.status.name() == 'DELETED' }">This thread has been deleted</p>
+			<section class="newReply" th:if="${thread.status.name() == 'OPEN'}">
 				<h2>Reply to this thread</h2>
 				<form th:action="@{/threads/{id}/posts/new(id=${thread.id})}" method="post">
 					<label> Reply

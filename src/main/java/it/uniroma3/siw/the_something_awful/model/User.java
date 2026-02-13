@@ -3,6 +3,7 @@ package it.uniroma3.siw.the_something_awful.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,11 +22,11 @@ public class User {
 	private String email;
 	@OneToOne
 	private Credentials credentials;
-	@OneToMany(mappedBy = "author")
+	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
 	private List<Post> posts = new ArrayList<Post>();
-	@OneToMany(mappedBy = "createdBy")
+	@OneToMany(mappedBy = "createdBy", cascade = CascadeType.ALL)
 	private List<Thread> threads = new ArrayList<Thread>();
-	@OneToMany(mappedBy = "certifiedBy")
+	@OneToMany(mappedBy = "certifiedBy", cascade = CascadeType.ALL)
 	private List<Creature> certifiedCreatures = new ArrayList<>();
 	
 	public User() {}

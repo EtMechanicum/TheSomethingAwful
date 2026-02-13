@@ -25,6 +25,7 @@ public class Post {
 	@JoinColumn(name = "thread_id")
 	private Thread thread;
 	private String postType;
+	private boolean deleted = false;
 	
 	public Post() {}
 
@@ -74,6 +75,14 @@ public class Post {
 
 	public void setPostType(String postType) {
 		this.postType = postType;
+	}
+
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
 	}
 	
 	

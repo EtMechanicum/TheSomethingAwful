@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,6 +31,8 @@ public class Thread {
 	private Category category;
 	@OneToMany(mappedBy = "thread", cascade = CascadeType.ALL)
 	private List<Post> posts = new ArrayList<Post>();
+	@Enumerated(EnumType.STRING)
+	private ThreadStatus status = ThreadStatus.OPEN; //aperto di default. Owner può chiuderlo, ma non riaprirlo. 
 	
 	public Thread() {}
 
@@ -86,6 +90,14 @@ public class Thread {
 
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
+	}
+
+	public ThreadStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ThreadStatus status) {
+		this.status = status;
 	}
 	
 }
