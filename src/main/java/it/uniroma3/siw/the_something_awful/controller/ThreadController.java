@@ -40,7 +40,8 @@ public class ThreadController {
 	/*Questo viene eseguito solo quando viene crato un nuovo thread*/
 	/*Per i post successivi c'è un altro metodo*/
 	@PostMapping("/category/{id}/thread/new")
-	public String newThread(@PathVariable("id") Long categoryId, @RequestParam String threadTitle, @RequestParam String postContent) {
+	public String newThread(@PathVariable("id") Long categoryId, @RequestParam String imageFileName,
+			@RequestParam String threadTitle, @RequestParam String postContent) {
 		Category category = cs.getCategoryById(categoryId);
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
 		Credentials creatorCredentials = credServ.getCredentialsByUsername(userDetails.getUsername());
@@ -59,6 +60,7 @@ public class ThreadController {
 		post.setAuthor(thread.getCreatedBy());
 		post.setThread(thread);
 		post.setPostType(OP);
+		post.setImageFileName(imageFileName);
 		/*Save*/
 		thread.getPosts().add(post);
 		ts.saveThread(thread);

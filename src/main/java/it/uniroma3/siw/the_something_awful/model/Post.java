@@ -26,6 +26,7 @@ public class Post {
 	private Thread thread;
 	private String postType;
 	private boolean deleted = false;
+	private String imageFileName;
 	
 	public Post() {}
 
@@ -83,6 +84,14 @@ public class Post {
 
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 	
 	

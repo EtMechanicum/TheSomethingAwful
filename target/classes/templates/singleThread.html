@@ -10,9 +10,12 @@
 			<h1 th:text="${thread.title}">Thread</h1>
 			<hr>
 			<section class="posts-container">
-				<p th:if="${#lists.isEmpty(thread.posts)}">No replies yet</p>	
+				  <p th:if="${#lists.isEmpty(thread.posts)}">No replies yet</p>	
 				  <ul class="post-list">
 				    <li th:each="post : ${thread.posts}">
+						<div th:if="${post.imageFileName}">
+							<img th:src="@{'/images/threads/' + ${post.imageFileName}}" width="400px" height="300px">
+						</div>
 				        <p th:text="${post.content}"></p>
 						<span th:text="|${post.postType} (user: ${post.author.nickname})|"></soan>
 						<hr>
