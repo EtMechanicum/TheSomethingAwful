@@ -1,0 +1,6 @@
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+ALTER TABLE credentials ALTER COLUMN id SET DEFAULT nextval('credentials_seq');
+
+INSERT INTO users(name, surname, email)VALUES('Admin', 'Root', 'admin@mail.com');
+
+

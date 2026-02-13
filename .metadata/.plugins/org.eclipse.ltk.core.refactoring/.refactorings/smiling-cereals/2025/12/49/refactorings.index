@@ -1,0 +1,15 @@
+1764683739104	Encapsulate field 'id, ...'
+1764683747180	Encapsulate field 'username, ...'
+1764683749869	Encapsulate field 'password, ...'
+1764683751955	Encapsulate field 'role, ...'
+1764683945351	Encapsulate field 'id, ...'
+1764683954872	Encapsulate field 'name, ...'
+1764683956862	Encapsulate field 'surname, ...'
+1764683958797	Encapsulate field 'email, ...'
+1764773811250	Encapsulate field 'user, ...'
+1764851771832	Rename resource 'registrationSuccessful'
+1764869370186	Rename resource 'errors'
+1764929629384	Move source folder
+1764929768599	Move file
+1764930909547	Rename resource 'lu-pengdulum.jpeg'
+1764930920053	Rename resource 'lu-pengdulum.ong'

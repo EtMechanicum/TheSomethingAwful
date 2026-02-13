@@ -1,0 +1,95 @@
+/* Reset base */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, saddlebrown, orange);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Contenitore form */
+form {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    width: 320px;
+}
+
+/* Titolo */
+h1 {
+    text-align: center;
+    color: saddlebrown;
+    margin-bottom: 25px;
+}
+
+/* Righe input */
+form > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Label */
+form span:first-child {
+    font-weight: bold;
+    color: black;
+    margin-bottom: 5px;
+}
+
+/* Input */
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid saddlebrown;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: orange;
+    box-shadow: 0 0 6px orange;
+}
+
+/* Bottone */
+button {
+    background-color: saddlebrown;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: orange;
+    color: black;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Link registrazione */
+div > a {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div > a:hover {
+    text-decoration: underline;
+}

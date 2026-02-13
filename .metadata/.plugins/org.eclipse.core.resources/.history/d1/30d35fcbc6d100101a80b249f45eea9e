@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title th:text="${cereal.name}">Cereal name</title>
+	</head>
+	
+	<body>
+		<h1>SMILING CEREALS</h1>
+		<h2 th:text="${cereal.name}">Cereal name</h2>
+		<p th:text="${cereal.description}">Cereal description</p>
+		<p th:text="'Flavor: ' + ${cereal.flavor}"></p>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+ALTER TABLE category ALTER COLUMN id SET DEFAULT nextval('category_seq');
+
+INSERT INTO category(name, description, position)VALUES('Feels like someone else is here', '
+Subtle presences, unexplained sensations, the feeling of not being alone.
+Most reports are incomplete. Some are not.', 1);
+INSERT INTO category(name, description, position)VALUES('Been dreaming of this?', '
+Recurring dreams, familiar places never visited, symbols that won’t go away.
+You’re probably not the only one.', 2);
+INSERT INTO category(name, description, position)VALUES();
+INSERT INTO category(name, description, position)VALUES();
+INSERT INTO category(name, description, position)VALUES();
+INSERT INTO category(name, description, position)VALUES();
+

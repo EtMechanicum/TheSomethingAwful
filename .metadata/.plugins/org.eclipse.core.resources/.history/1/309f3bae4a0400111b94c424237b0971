@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title th:text="${recipe.title}">Recipe name</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+		<link rel="stylesheet" href="/css/singleRecipe.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<hr>
+		<section class="chunk1">
+			<div>
+				<h1 th:text="${recipe.title}">Title</h1>
+				<p th:text="|Recipe by ${recipe.author.name} ${recipe.author.surname}|">Author</p>
+				<p th:text="|Created on ${recipe.createdAt}|">Created at</p>
+			</div>
+			<img th:src="@{'/images/recipes/' + ${recipe.imageFileName}}" height="400px" width="320px" />
+		</section>
+		<hr style="width: 35%; text-align: left; margin: 0;">
+		<section class="chunk2">
+			<div class="left">
+				<p th:text="|Total time: ${recipe.preparationTime} minutes|">Prep time</p>
+				<p th:text="|Rating: ${recipe.stars}|">Stars</p>
+				<p>Comments: <a href="/">Read the comments</a></p>
+			</div>
+			<div class="right">
+				<p th:text="${recipe.description}">Recipe desc</p>
+			</div>
+		</section>
+		<section class="chunk3">
+			<div class="left">
+				<h2>Ingredients</h2>
+					<ul>
+						<li th:each="item : ${recipe.ingredients}">
+							<p th:text="|${item.ingredient} ${item.quantity} ${item.unit}|">Nome ingrediente</p>
+						</li>
+					</ul>
+			</div>
+			<div class="right">
+				<h2>Steps</h2>
+					<ol>
+						<li th:each="item : ${recipe.steps}">
+							<p th:text="|${item}|">Step desc</p>
+						</li>
+					</ol>
+			</div>			
+		</section>
+		<a th:if="${idLoggedUser == recipe.author.id}" th:href="@{/recipes/{id}/edit(id=${recipe.id})}">Edit recipe</a>
+		<!--Posted reviews-->
+		<div th:if="${#lists.isEmpty(recipe.reviews)}">No reviews yet</div>
+			<section th:if="${!#lists.isEmpty(recipe.reviews)}">
+				<div> 
+					<span>Reviews</span>
+					<ul>
+						<li th:each="item : ${recipe.reviews}">
+							<span th:text="${item.title}">Title</span>
+							<span th:text="|Stars: ${item.rating}|">5</span>
+							<div th:text="${item.body}">Review</div>
+							<span th:text="|Posted by ${item.user.name} ${item.user.surname}|"></span>
+							<a th:if="${idLoggedUser == item.user.id}" th:href="@{/reviews/{id}/edit(id=${item.id})}">Edit review</a>
+							<a th:if="${idLoggedUser == item.user.id} or
+								#authorization.expression('hasRole('ADMIN'))" th:href="@{/reviews/{id}/delete(id=${item.id})}">Delete review</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		<!--Post a new review-->
+		<section>
+			<span>Post a review</span>
+			<form th:action="@{/recipes/{id}/newReview(id=${recipe.id})}"
+			      th:object="${newReview}"
+			      method="post">
+				  <input type="hidden" th:field="*{id}" th:value="0" />
+			    <label> Title
+			        <input type="text" required th:field="*{title}">
+			    </label>
+
+			    <label> Review
+			        <textarea th:field="*{body}" rows="3">
+			            Write down your review
+			        </textarea>
+			    </label>
+
+			    <label>
+			        Stars:
+			        <span id="ratingValue"
+			              th:text="*{rating != null ? rating : 2.5}">
+			            2.5
+			        </span>
+
+			        <input type="range"
+			               min="0"
+			               max="5"
+			               step="0.5"
+			               th:field="*{rating}"
+			               oninput="document.getElementById('ratingValue').textContent = this.value">
+			    </label>
+
+			    <button>Post</button>
+			</form>
+		</section>
+	</body>
+</html>
+	

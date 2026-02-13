@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it"
+      xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>Nuova Ricetta</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+	</head>
+	<body>
+		<h1>Crea nuova ricetta</h1>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<hr>
+		<main>
+			<section>
+				<form th:action="@{/recipes/new}" th:object="${newRecipe}" method="post">
+	
+					<label> Recipe title
+						<input type="text" th:field="*{title}" placeholder="Titolo"/>
+					</label>
+					<label> Description
+						<textarea th:field="*{description}" placeholder="Pick up the tomatoes and smash..."></textarea>
+					</label>
+					<hr>
+					<!--Steps-->
+					<div th:each="i, stat: *{steps}">
+						<label> Steps
+							<textarea th:field="*{steps[__${stat.index}__]}" placeholder="Put the eggs in the..." rows="5"></textarea>
+						</label>
+					</div>			
+					<button type="submit" name="addStep">➕ Add Step</button>		
+					<hr>
+				    <div th:each="i, stat : *{ingredients}">
+				    <!--Ingredients-->
+					<label> Ingredient
+						<input type="text" th:field="*{ingredients[__${stat.index}__].ingredient}"/>
+					</label>
+
+					<label> Quantity
+						<input type="number" th:field="*{ingredients[__${stat.index}__].quantity}" />
+					</label>
+
+				        <select th:field="*{ingredients[__${stat.index}__].unit}">
+				            <option th:each="u : ${units}"
+				                    th:value="${u}"
+				                    th:text="${u}">
+				            </option>
+				        </select>
+				    </div>
+					<button type="submit" name="addIngredient">➕ Add ingredient</button>
+					<hr>
+					<!--Categories-->
+					<div th:each="i,stat : *{categories}">
+						<label> Select categories
+							<select th:field="*{categories[__${stat.index}__].id}">
+								<option th:each="c : ${categories}"
+										th:value="${c.id}"
+										th:text="${c.name}">
+								</option>
+							</select>
+						</label>
+					</div>					
+					<button type="submit" name="addCategory">➕ Add category</button>
+					<!--Complementary data-->
+					<label>Prepatation time in minutes
+						<input type="number" th:field="*{preparationTime}">
+					</label>
+					<label> Select difficulty 
+						<select th:field="*{difficulty}">
+							<option th:each="d : ${difficulties}" th:value="${d}" th:text="${d}">Select difficulty</option>
+						</select>
+					</label>
+					<label> Image file name
+						<input type="text" th:field="*{imageFileName}">
+					</label>
+				    <button type="submit">Salva</button>
+				</form>
+			</section>
+
+		</main>
+	
+	
+	</body>
+</html>

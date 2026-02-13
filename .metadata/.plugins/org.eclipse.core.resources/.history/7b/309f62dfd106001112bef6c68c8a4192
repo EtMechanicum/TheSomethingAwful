@@ -1,0 +1,15 @@
+.title {
+	border: solid orange;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.title > * {
+	border: solid greenyellow;
+}
+
+.title form {
+	display: flex;
+	align-items: center;
+}

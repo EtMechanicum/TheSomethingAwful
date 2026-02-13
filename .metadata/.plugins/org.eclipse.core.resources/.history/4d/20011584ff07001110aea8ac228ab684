@@ -1,0 +1,163 @@
+/* =========================
+   BASE
+   ========================= */
+
+body {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    background-color: #fffaf5;
+    color: black;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: saddlebrown;
+    margin: 30px 0;
+}
+
+/* =========================
+   CHUNK 1 – HERO
+   ========================= */
+
+.chunk1 {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    background: linear-gradient(135deg, white, #fff1e0);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.chunk1 h1 {
+    font-size: 42px;
+    color: saddlebrown;
+    margin-bottom: 10px;
+}
+
+.chunk1 p {
+    font-size: 18px;
+    margin: 6px 0;
+}
+
+.chunk1 img {
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   CHUNK 2 – INFO + DESC
+   ========================= */
+
+.chunk2 {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    gap: 40px;
+}
+
+.chunk2 .left,
+.chunk2 .right {
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.chunk2 .left {
+    width: 30%;
+}
+
+.chunk2 .left p {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.chunk2 .left a {
+    color: orange;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.chunk2 .left a:hover {
+    text-decoration: underline;
+}
+
+.chunk2 .right {
+    width: 70%;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* =========================
+   CHUNK 3 – INGREDIENTI / STEPS
+   ========================= */
+
+.chunk3 {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    gap: 40px;
+}
+
+.chunk3 h2 {
+    color: saddlebrown;
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-left: 6px solid orange;
+    padding-left: 12px;
+}
+
+.chunk3 .left,
+.chunk3 .right {
+    width: 50%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.chunk3 ul,
+.chunk3 ol {
+    padding-left: 20px;
+}
+
+.chunk3 li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* =========================
+   ACTIONS (EDIT / DELETE / ROTD)
+   ========================= */
+
+a[href*="edit"],
+form button {
+    background-color: saddlebrown;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+a[href*="edit"] {
+    text-decoration: none;
+}
+
+a[href*="edit"]:hover,
+form button:hover {
+    background-color: orange;
+    color: black;
+}
+
+/* =========================
+   REVIEWS
+   =========

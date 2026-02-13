@@ -1,0 +1,31 @@
+<header th:fragment="navbar">
+	<div class="container">
+		<a class="logo" href="/"><img src="/images/example_logo.jpg"></a>
+		<form class="search" th:action="@{/search}" method="get">
+			<input type="text" name="query" required placeholder="Search...">
+			<button>search</button>
+		</form>
+		<div class="user">
+			<a th:if="${userDetails}" th:text="${userDetails.username}" href="/profile">Username</a>
+			<a th:unless="${userDetails}" href="/register">Register</a>
+		</div>
+		<div class="login">
+			<form th:if="${userDetails}" th:action="@{/logout}" method="post">
+				<button type="submit">Logout</button>
+			</form>
+			<a th:unless="${userDetails}" href="/login">Login</a>
+		</div>
+	</div>
+	<nav class="menu">
+	  <ul>
+	    <li class="dropdown">
+	      <p>Recipes</p>
+	      <ul class="dropdown-content">
+	        <li><a href="#">Voce 1</a></li>
+	        <li><a href="#">Voce 2</a></li>
+	        <li><a href="#">Voce 3</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</nav>
+</header>	

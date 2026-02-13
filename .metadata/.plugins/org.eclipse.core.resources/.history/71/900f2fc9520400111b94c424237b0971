@@ -1,0 +1,16 @@
+package it.uniroma3.siw.siw_recipes.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import it.uniroma3.siw.siw_recipes.service.ReviewService;
+
+@Controller
+public class ReviewController {
+	@Autowired
+	private ReviewService rs;
+	
+	@PostMapping("/recipes/deleteReview/{id}")
+	public String deleteReview(@PathVariable Long id, )
+}

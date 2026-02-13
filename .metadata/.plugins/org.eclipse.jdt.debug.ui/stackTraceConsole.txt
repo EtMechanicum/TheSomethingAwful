@@ -1,0 +1,38 @@
+<form th:object="${recipe}"
+      th:action="@{/recipes/save}"
+      method="post">
+
+    <!-- Campi Recipe -->
+    <input type="text" th:field="*{name}" />
+
+    <select th:field="*{difficulty}">
+        <option th:each="d : ${difficulties}"
+                th:value="${d}"
+                th:text="${d}">
+        </option>
+    </select>
+
+    <!-- Ingredienti -->
+    <div th:each="ri, stat : *{ingredients}">
+
+        <select th:field="*{ingredients[__${stat.index}__].ingredient}">
+            <option th:each="i : ${ingredients}"
+                    th:value="${i.id}"
+                    th:text="${i.name}">
+            </option>
+        </select>
+
+        <input type="number" step="0.01"
+               th:field="*{ingredients[__${stat.index}__].quantity}" />
+
+        <select th:field="*{ingredients[__${stat.index}__].unit}">
+            <option th:each="u : ${units}"
+                    th:value="${u}"
+                    th:text="${u}">
+            </option>
+        </select>
+
+    </div>
+
+    <button type="submit">Salva ricetta</button>
+</form>

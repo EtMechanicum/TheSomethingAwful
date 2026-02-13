@@ -1,0 +1,8 @@
+package it.uniroma3.siw.tsa.repo;
+
+import org.springframework.data.repository.CrudRepository;
+import it.uniroma3.siw.tsa.model.Thread
+;
+public interface ThreadRepo extends CrudRepository<Thread, Long>{
+
+}

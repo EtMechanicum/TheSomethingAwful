@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Recipes</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+		<link rel="stylesheet" href="/css/recipes.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<hr>
+
+		<main class="recipes-page">
+			<h1>All our recipes</h1>
+
+			<section th:if="${#lists.isEmpty(recipes)}" class="empty">
+				No recipes to show 🍽️
+			</section>
+			
+			<section th:if="${!#lists.isEmpty(recipes)}" class="recipes-grid">
+				<div class="recipe-card" th:each="item : ${recipes}">
+					<img th:src="|/images/recipes/${item.imageFileName}|">
+					<a th:href="@{/recipes/{id}(id=${item.id})}">
+						<h2 th:text="${item.title}">Title</h2>
+					</a>
+				</div>
+			</section>
+			
+			<a class="back-home" href="/">← Back to home</a>
+		</main>
+	</body>
+</html>

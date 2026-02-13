@@ -1,0 +1,102 @@
+package it.uniroma3.siw.siw_recipes.controller;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import it.uniroma3.siw.siw_recipes.dto.IngredientDTO;
+import it.uniroma3.siw.siw_recipes.dto.RecipeDTO;
+import it.uniroma3.siw.siw_recipes.model.Difficulty;
+
+import it.uniroma3.siw.siw_recipes.model.Recipe;
+import it.uniroma3.siw.siw_recipes.model.ingredients.Ingredient;
+import it.uniroma3.siw.siw_recipes.model.ingredients.IngredientInRecipe;
+import it.uniroma3.siw.siw_recipes.model.ingredients.Unit;
+import it.uniroma3.siw.siw_recipes.service.CategoryService;
+import it.uniroma3.siw.siw_recipes.service.IngredientService;
+import it.uniroma3.siw.siw_recipes.service.RecipeService;
+
+@Controller
+public class RecipeController {
+	
+	@Autowired
+	private RecipeService rs;
+	@Autowired
+	private IngredientService is;
+	@Autowired
+	private CategoryService cs;
+	
+	//Questo eventualmente lo metterò in un altro controller.
+	//Per ora lo lascio qui
+	@GetMapping("/")
+	public String homepage() {
+		return "homepage";
+	}
+	
+	@GetMapping("/recipes/new")
+	public String newRecipe(Model model) {
+	    
+		RecipeDTO newRecipe = new RecipeDTO();
+	 // aggiungi 3 ingredienti “vuoti” nella lista
+	    for (int j = 0; j < 3; j++) {
+	        newRecipe.getIngredients().add(new IngredientDTO());
+	    }
+	    model.addAttribute("newRecipe", newRecipe);
+	    model.addAttribute("allIngredients", is.getAllIngredients());
+	    model.addAttribute("units", Unit.values());
+	    model.addAttribute("difficulties", Difficulty.values());
+	    model.addAttribute("categories", cs.getAllCategories());
+	    return "formNewRecipe";
+	}
+
+
+	
+	@PostMapping("/recipes/new")
+	public String saveRecipe(
+	        @ModelAttribute("recipeForm") RecipeDTO newRecipe) {
+	    Recipe recipe = new Recipe();
+	    recipe.setTitle(newRecipe.getTitle());
+	    recipe.setDescription(newRecipe.getDescription());
+	    recipe.setPreparationTime(newRecipe.getPreparationTime());
+	    recipe.setDifficulty(newRecipe.getDifficulty());
+	    recipe.setCategory(
+	        cs.getCategoryById(newRecipe.getCategoryId()));
+	    recipe.setCreatedAt(LocalDateTime.now());
+
+	    for (IngredientDTO ingDto : newRecipe.getIngredients()) {
+	        Ingredient ingredient =
+	            is.getIngredientById(ingDto.getId());
+
+	        IngredientInRecipe iir = new IngredientInRecipe();
+	        iir.setRecipe(recipe);
+	        iir.setIngredient(ingredient);
+	        iir.setQuantity(ingDto.getQuantity());
+	        iir.setUnit(ingDto.getUnit());
+
+	        recipe.getIngredients().add(iir);
+	    }
+
+	    rs.saveRecipe(recipe);
+	    return "redirect:/recipes/allRecipes";
+	}
+
+	
+	@GetMapping("/recipes/{id}")
+	public String toSingleRecipe(@RequestParam Long id, Model model) {
+		model.addAttribute("recipe", rs.getRecipeById(id));
+		return "singleRecipe";
+	}
+	
+	@GetMapping("/recipes/allRecipes")
+	public String allRecipes(Model model) {
+		model.addAttribute("recipes", rs.getAllRecipes());
+		return "allRecipes";
+	}
+
+}

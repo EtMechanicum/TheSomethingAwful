@@ -1,0 +1,112 @@
+package it.uniroma3.siw.smiling_cereals.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import it.uniroma3.siw.smiling_cereals.model.Cereal;
+import it.uniroma3.siw.smiling_cereals.model.NutritionalProfile;
+import it.uniroma3.siw.smiling_cereals.model.Review;
+import it.uniroma3.siw.smiling_cereals.model.User;
+import it.uniroma3.siw.smiling_cereals.service.CerealService;
+import it.uniroma3.siw.smiling_cereals.service.CredentialsService;
+import it.uniroma3.siw.smiling_cereals.service.ReviewService;
+
+@Controller
+public class CerealController {
+	
+	@Autowired
+	private CerealService cs;
+	@Autowired
+	private ReviewService rs;
+	@Autowired
+	private CredentialsService creServ;
+	
+	@GetMapping("/cereals")
+	public String cereals(Model model) {
+		model.addAttribute("cereals", cs.getAllCereals());
+		return "allCereals";
+	}
+	
+	@GetMapping("/cereals/{id}")
+	public String singleCereal(@PathVariable Long id, Model model) {
+		model.addAttribute("cereal", cs.getCerealById(id)); //Per mostrare le info del cereale
+		model.addAttribute("reviews", cs.getCerealById(id).getReviews()); //Per mostrare tutte le recensioni del cereale 
+		model.addAttribute("newReview", new Review()); //Per la creazione di una nuova recensione
+		return "singleCereal";
+	}
+	
+	@GetMapping("/admin/cereals/newCerealForm")
+	public String newCereal(Model model) {
+		model.addAttribute("newCereal", new Cereal());
+		model.addAttribute("np", new NutritionalProfile());
+		return "/admin/formNewCereal";
+	}
+	
+	@PostMapping("/admin/cereals/newCereal")
+	public String newCereal(@ModelAttribute Cereal cereal, @RequestParam("npId") Long npId) {
+		cs.saveCereal(cereal);
+		return "redirect:/cereals/" + cereal.getId();
+	}
+	
+	/*
+	 * Di seguito i metodi riguardanti le recensioni
+	 * 
+	 * 	@PostMapping("/sightings/{id}/newComment")
+	public String saveComment(@PathVariable Long id,
+	                          @ModelAttribute("newComment") Comment comment) {
+
+	    comment.setId(null);                 // obbligatorio
+	    Sighting s = sightingServ.getSightingById(id);
+	    comment.setSighting(s);
+	    commentServ.save(comment);
+
+	    return "redirect:/sightings/" + id;
+	}
+	 */
+	
+	@PostMapping("/cereals/{id}/newReview")
+	public String saveReview(@PathVariable Long id, @ModelAttribute("newReview") Review review) {
+		Cereal cereal = cs.getCerealById(id);
+		review.setCereal(cereal);
+		//Questo trova i dettagli dell'utente loggato. Serve per trovare l'utente a partire dall'username
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//Trova l'utente a partire dall'username
+		User user = creServ.getCredentialsByUsername(userDetails.getUsername()).getUser();
+		review.setUser(user);
+		//Ora facciamo l'aggiornamento del rating del cereale
+		System.out.println("The value of the rating is: " + review.getRating());
+		cereal.addRating(review.getRating());
+		//Si fa il save
+		rs.saveReview(review);
+		return "redirect:/cereals/" + id;
+	}
+	
+	/*Delete cereal*/
+	@PostMapping("/admin/deleteCereal")
+	public String deleteCereal(@RequestParam("itemId") Long id) {
+		cs.deleteCereal(cs.getCerealById(id));
+		return "redirect:/cereals";
+	}
+	
+	/*Change the featured status*/
+	@PostMapping("/admin/featuredChange")
+	public String changeFeaturedStatus(@RequestParam("itemId") Long id) {
+		Cereal cereal = cs.getCerealById(id);
+		cereal.setFeatured(!cereal.isFeatured());
+		cs.saveCereal(cereal);
+		return "redirect:/cereals";
+	}
+	
+	
+	
+	
+	
+}

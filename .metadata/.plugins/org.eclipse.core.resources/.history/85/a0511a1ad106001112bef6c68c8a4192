@@ -1,0 +1,7 @@
+.title {
+	border: solid orange;
+}
+
+.title > * {
+	border: solid greenyellow;
+}

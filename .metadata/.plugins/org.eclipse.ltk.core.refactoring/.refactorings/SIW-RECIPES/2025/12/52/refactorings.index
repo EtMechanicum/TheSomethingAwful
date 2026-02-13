@@ -1,0 +1,25 @@
+1766407440955	Move compilation unit
+1766408181001	Move compilation unit
+1766408190911	Move compilation unit
+1766408196768	Move compilation unit
+1766408201277	Delete element
+1766408442654	Encapsulate field 'id, ...'
+1766408445093	Encapsulate field 'name, ...'
+1766408447445	Encapsulate field 'quantity, ...'
+1766408458685	Encapsulate field 'unit, ...'
+1766408588106	Encapsulate field 'recipe, ...'
+1766408790946	Encapsulate field 'id, ...'
+1766408793897	Encapsulate field 'name, ...'
+1766408795887	Encapsulate field 'surname, ...'
+1766408798202	Encapsulate field 'email, ...'
+1766409033409	Encapsulate field 'id, ...'
+1766409035834	Encapsulate field 'title, ...'
+1766409038064	Encapsulate field 'description, ...'
+1766409043726	Encapsulate field 'ingredients, ...'
+1766409048080	Encapsulate field 'preparationTime, ...'
+1766409050521	Encapsulate field 'difficulty, ...'
+1766409052948	Encapsulate field 'createdAt, ...'
+1766409064384	Encapsulate field 'author, ...'
+1766409097744	Encapsulate field 'id, ...'
+1766409104444	Encapsulate field 'name, ...'
+1766409172552	Encapsulate field 'category, ...'

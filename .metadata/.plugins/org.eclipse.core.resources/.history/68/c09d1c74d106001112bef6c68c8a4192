@@ -1,0 +1,14 @@
+.title {
+	border: solid orange;
+	display: flex;
+	flex-direction: row;
+}
+
+.title > * {
+	border: solid greenyellow;
+}
+
+.title form button{
+	display: flex;
+	align-items: center;
+}

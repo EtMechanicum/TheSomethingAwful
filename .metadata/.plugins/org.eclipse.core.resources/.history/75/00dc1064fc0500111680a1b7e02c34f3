@@ -1,0 +1,92 @@
+package it.uniroma3.siw.smiling_cereals.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class NutritionalProfile {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private int sugarLevel;              // 0–100
+    private int chemicalInstability;      // 0–10
+    private int hyperactivityRisk;        // 0–5
+
+    private String longTermEffect;        // descrizione ironica
+    private String shortTermEffect;
+
+    private String officialDisclaimer;    // finto legalese
+    private String unofficialTruth;       // punchline
+    
+    public NutritionalProfile() {}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getSugarLevel() {
+		return sugarLevel;
+	}
+
+	public void setSugarLevel(int sugarLevel) {
+		this.sugarLevel = sugarLevel;
+	}
+
+	public int getChemicalInstability() {
+		return chemicalInstability;
+	}
+
+	public void setChemicalInstability(int chemicalInstability) {
+		this.chemicalInstability = chemicalInstability;
+	}
+
+	public int getHyperactivityRisk() {
+		return hyperactivityRisk;
+	}
+
+	public void setHyperactivityRisk(int hyperactivityRisk) {
+		this.hyperactivityRisk = hyperactivityRisk;
+	}
+
+	public String getLongTermEffect() {
+		return longTermEffect;
+	}
+
+	public void setLongTermEffect(String longTermEffect) {
+		this.longTermEffect = longTermEffect;
+	}
+
+	public String getShortTermEffect() {
+		return shortTermEffect;
+	}
+
+	public void setShortTermEffect(String shortTermEffect) {
+		this.shortTermEffect = shortTermEffect;
+	}
+
+	public String getOfficialDisclaimer() {
+		return officialDisclaimer;
+	}
+
+	public void setOfficialDisclaimer(String officialDisclaimer) {
+		this.officialDisclaimer = officialDisclaimer;
+	}
+
+	public String getUnofficialTruth() {
+		return unofficialTruth;
+	}
+
+	public void setUnofficialTruth(String unofficialTruth) {
+		this.unofficialTruth = unofficialTruth;
+	}
+    
+    
+}
+

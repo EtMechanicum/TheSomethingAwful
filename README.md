@@ -1,1 +1,0 @@
-#The Something Awful Forums

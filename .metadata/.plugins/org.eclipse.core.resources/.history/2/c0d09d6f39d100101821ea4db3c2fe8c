@@ -1,0 +1,7 @@
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+ALTER TABLE credentials ALTER COLUMN id SET DEFAULT nextval('credentials_seq');
+
+INSERT INTO users(name, surname, email)VALUES('Admin', 'Root', 'admin@mail.com');
+
+
+INSERT INTO credentials(username, password, role, user_id)VALUES ('admin', '$2a$10$8dQY....rest_of_hash...', 'ADMIN_ROLE', <id_of_the_user_here>);

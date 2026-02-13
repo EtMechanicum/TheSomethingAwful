@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>New Cereal</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<h1>Hey admin, new cereal details here!!</h1>
+		<section>
+			<form th:action="@{/admin/cereals/newCereal}" method="post" th:object="${newCereal}">
+				<div>
+					Cereal name: <span><input required type="text" th:field="*{name}"></span>
+				</div>
+				<div>
+					Description: <span><textarea th:field="*{description}"></textarea></span>
+				</div>
+				<div>
+					Flavor: <span><input type="text" th:field="*{flavor}"></span>
+				</div>
+				<div>
+					Image location: </span><input type="text" th:field="*{fileName}"></span>
+				</div>
+				<div>
+					Featured? <span><input type="checkbox" th:field="*{featured}"></span>
+				</div>
+				<!--Nutritional profile field
+					private Long id;
+
+					   private int sugarLevel; 
+					   private String composition;									  // 0–100
+					   private int chemicalInstability;      // 0–10
+					   private int hyperactivityRisk;        // 0–5
+
+					   private String longTermEffect;        // descrizione ironica
+					   private String shortTermEffect;
+
+					   private String officialDisclaimer;    // finto legalese
+					   private String unofficialTruth; 
+				-->
+				<div>
+					Sugar level: <span><input required type="number" step="1" th:field="${np.sugarLevel}"></span>
+				</div>
+				<div>
+					Composition: <span><textarea placeholder="ham, egg whites, tons of sugar..." th:field="${np.Composition}"></span>
+				</div>
+				<div>
+					Hyperactivity risk: <span><input required type="number" th:field="${np.hyperactivityRisk}"></span>
+				</div>
+				<div>
+					Long term effect: <span><input required type="text" th:field="${np.longTermEffect}"></span>
+				</div>
+				<div>
+					Short term effect: <span><input required type="text" th:field="${np.shortTermEffect}"></span>
+				</div>
+				<div>
+					Disclaimer: <span><textarea required type="text" th:field="${np.officialDisclaimer}"></span>
+				</div>
+				<div>
+					Unofficial truth: <span><textarea required type="text" th:field="${np.unofficialTruth}"></span>
+				</div>
+				<input type="hidden" value="${np.Id}" name="npId">
+				<button>Submit</button>
+			</form>
+		</section>
+	</body>
+</html>

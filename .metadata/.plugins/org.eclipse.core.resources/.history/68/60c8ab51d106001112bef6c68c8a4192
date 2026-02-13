@@ -1,0 +1,9 @@
+.title {
+	border: solid orange;
+	display: flex;
+	flex-direction: row;
+}
+
+.title > * {
+	border: solid greenyellow;
+}

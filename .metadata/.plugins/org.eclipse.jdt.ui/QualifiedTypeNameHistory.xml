@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
+    <fullyQualifiedTypeName name="org.springframework.data.domain.PageRequest"/>
+    <fullyQualifiedTypeName name="it.uniroma3.siw.siw_recipes.model.ingredients.Unit"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher"/>
+    <fullyQualifiedTypeName name="it.uniroma3.siw.siw_recipes.dto.RecipeMapper"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.EnumType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+</qualifiedTypeNameHistroy>

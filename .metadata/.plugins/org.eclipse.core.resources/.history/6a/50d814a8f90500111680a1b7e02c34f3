@@ -1,0 +1,5 @@
+package it.uniroma3.siw.smiling_cereals.model;
+
+public class NutritionalProfile {
+
+}

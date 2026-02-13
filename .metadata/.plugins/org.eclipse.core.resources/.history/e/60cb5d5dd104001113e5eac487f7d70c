@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SIW Recipes</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<hr>
+		
+	</body>
+</html>

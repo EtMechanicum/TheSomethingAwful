@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SIW Recipes</title>
+		<link rel="stylesheet" href="/css/navbar.css">
+		<link rel="stylesheet" href="/css/homepage.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<hr>
+		<main>
+			<section class="rotd">
+				<div th:if="${recipeOfTheDay}">
+					<p>Recipe of the day!</p>
+					<img th:src="@{'/images/recipes/' + ${recipeOfTheDay.imageFileName}}" height="400px" width="320px" />
+					<p th:text="${recipeOfTheDay.title}">Recipe title</p>
+				</div>
+			</section>
+			<section>
+				<div th:if="${newest}">
+					<p>The most recent</p>
+					<div th:each="item : ${newest}">						
+						<img th:src="@{'/images/recipes/' + ${item.imageFileName}}" height="400px" width="320px" />
+						<p th:text="${item.title}">Recipe title</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div th:if="${popular}">
+					<p>The most popular</p>
+					<div th:each="item : ${popular}">						
+						<img th:src="@{'/images/recipes/' + ${item.imageFileName}}" height="400px" width="320px" />
+						<p th:text="${item.title}">Recipe title</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

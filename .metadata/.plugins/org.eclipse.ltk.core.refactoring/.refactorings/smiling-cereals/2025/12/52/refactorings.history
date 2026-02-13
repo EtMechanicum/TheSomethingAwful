@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;it.uniroma3.siw.smiling_cereals.model.User.reviews&apos; in &apos;it.uniroma3.siw.smiling_cereals.model.User&apos;&#x0A;- Original project: &apos;smiling-cereals&apos;&#x0A;- Original element: &apos;it.uniroma3.siw.smiling_cereals.model.User.reviews&apos;&#x0A;- Getter method name: &apos;getReviews&apos;&#x0A;- Setter method name: &apos;setReviews&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;reviews, ...&apos;" flags="589830" getter="getReviews" id="org.eclipse.jdt.ui.self.encapsulate" input="/java=/optional=/true=/=/maven.pomderived=/true=/&lt;it.uniroma3.siw.smiling_cereals.model{User.java[User^reviews" insertion="9" setter="setReviews" stamp="1766349380553" version="1.0" visibility="1"/>
+</session>
