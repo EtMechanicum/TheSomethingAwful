@@ -19,4 +19,8 @@ public class CategoryService {
 	public Category getCategoryById(Long id) {
 		return cr.findById(id).get();
 	}
+	
+	public Category getCategoryByName(String name) {
+		return cr.findByName(name);
+	}
 }

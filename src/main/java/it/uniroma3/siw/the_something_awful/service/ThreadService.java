@@ -23,4 +23,8 @@ public class ThreadService {
 	public Thread getThreadById(Long id) {
 		return tr.findById(id).get();
 	}
+	
+	public Iterable<Thread> getAllOfficialThreads() {
+		return tr.findAllByIsOfficialTrueOrderByCreatedAt();
+	}
 }

@@ -52,8 +52,8 @@ public class AuthConfiguration {
                     "/", "/home","/register","/login","/css/**", "/images/**", "/favicon.ico"
                 ).permitAll()
                 .requestMatchers(HttpMethod.POST, "/register", "/login").permitAll()
-                .requestMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
-                .requestMatchers(HttpMethod.POST, "/admin/**").hasAnyAuthority(ADMIN_ROLE)
+                .requestMatchers(HttpMethod.GET, "/mono/**").hasAnyAuthority(ADMIN_ROLE)
+                .requestMatchers(HttpMethod.POST, "/mono/**").hasAnyAuthority(ADMIN_ROLE)
                 .anyRequest().authenticated()
             )
             .formLogin(login -> login

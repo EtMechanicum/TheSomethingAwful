@@ -6,4 +6,5 @@ import it.uniroma3.siw.the_something_awful.model.Thread;
 public interface ThreadRepo extends CrudRepository<Thread, Long>{
 	
 	public Iterable<Thread> findAllByCategoryOrderByCreatedAt(Category category);
+	public Iterable<Thread> findAllByIsOfficialTrueOrderByCreatedAt();
 }

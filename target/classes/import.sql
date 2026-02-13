@@ -6,4 +6,4 @@ INSERT INTO category(name, description, position)VALUES('It followed me home', '
 INSERT INTO category(name, description, position)VALUES('Something is wrong with this place', 'Locations that feel incorrect. Buildings, rooms, roads, or spaces that don’t behave as expected. Maps may be unreliable.', 4);
 INSERT INTO category(name, description, position)VALUES('Can`t stop thinking about it', 'Obsessions, patterns, coincidences, and thoughts that refuse to leave. Repeated posting is common here.', 5);
 INSERT INTO category(name, description, position)VALUES('Static/Noise', 'Fragmented posts, corrupted memories, incomplete thoughts. Meaning not guaranteed.', 6);
-
+INSERT INTO category(name, description, position)VALUES('MONO', ' ', 19);

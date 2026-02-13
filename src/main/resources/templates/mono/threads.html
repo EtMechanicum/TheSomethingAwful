@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Something Awful</title>
+	</head>
+	<body>
+		<div th:replace="~{/fragments/navbar :: navbar}"></div>
+		<hr>
+		<main>
+			<h1 th:text="${category.name}">Category</h1>
+			<section class="newThread" sec:authorize access="hasRole('ADMIN')">
+				<h2>New Thread</h2>
+				<form th:action="@{/category/{id}/thread/new(id=${category.id})}" method="post">
+					<label> Title
+						<input type="text" name="threadTitle">
+					</label>
+					<label> Body
+						<textarea name="postContent"></textarea>
+					</label>
+					<label> Add an image (optional)
+						<input type="text"name="imageFileName">
+					</label>
+					<button>Post</button>
+				</form>
+			</section>
+			<hr>
+			<section class="threads-container">
+				<p th:if="${#lists.isEmpty(category.threads)}">No threads to show</p>	
+				  <ul class="thread-list">
+				    <li th:each="thread : ${category.threads}">
+				      <h2>
+				        <a th:href="@{/threads/{id}(id=${thread.id})}"
+				           th:text="${thread.title}">
+					    </a>
+				      </h2>	 
+				      <span th:text="${#lists.size(thread.posts)}"></span> posts
+				    </li>
+				  </ul>
+			</section>
+		</main>
+	</body>
+</html>
