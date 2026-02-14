@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title th:text="${creature.codeName}">Creature name</title>
+		<link rel="stylesheet" href="/css/mono/creature.css">
+		<link rel="stylesheet" jref="/css/navbar.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{/fragments/navbar :: navbar}"></div>
+		<main>
+			<section class="creature-dossier">
+
+			    <header class="dossier-header">
+			        <h1 th:text="${creature.codeName}">MN-014</h1>
+			        <p class="classification">
+			            Classification Status:
+			            <span th:text="${creature.threatLevel}">THREAT_LEVEL</span>
+			        </p>
+			    </header>
+
+			    <hr>
+
+			    <section class="dossier-section">
+			        <h2>Designation</h2>
+			        <p th:if="${creature.name}"
+			           th:text="${creature.name}">
+			            Unregistered
+			        </p>
+			        <p th:unless="${creature.name}">
+			            No confirmed designation assigned.
+			        </p>
+			    </section>
+
+			    <section class="dossier-section">
+			        <h2>Description</h2>
+			        <p th:text="${creature.description}">
+			            Description redacted.
+			        </p>
+			    </section>
+
+			    <section class="dossier-section">
+			        <h2>Status Overview</h2>
+			        <ul class="status-list">
+			            <li th:each="st : ${creature.status}"
+			                th:text="${st}">
+			                STATUS
+			            </li>
+			        </ul>
+			    </section>
+
+			    <section class="dossier-section">
+			        <h2>Discovery Record</h2>
+			        <p th:text="${creature.discoveredAt}">
+			            Information incomplete or restricted.
+			        </p>
+			    </section>
+
+			    <section class="dossier-section">
+			        <h2>Certification</h2>
+			        <p>
+			            File reviewed and certified by:
+			            <span th:if="${creature.certifiedBy}"
+			                  th:text="${creature.certifiedBy.username}">
+			                MONO Agent
+			            </span>
+			            <span th:unless="${creature.certifiedBy}">
+			                Pending verification
+			            </span>
+			        </p>
+			    </section>
+
+			    <section class="dossier-section" th:if="${creature.imageFileName}">
+			        <h2>Visual Reference</h2>
+			        <figure class="creature-image">
+			            <img th:src="@{/images/{img}(img=${creature.imageFileName})}"
+			                 alt="Visual reference unavailable">
+			            <figcaption>
+			                Image quality degraded. Interpretation discouraged.
+			            </figcaption>
+			        </figure>
+			    </section>
+
+			    <hr>
+
+			    <footer class="dossier-footer">
+			        <p class="disclaimer">
+			            This document is provided for observational purposes only.
+			            MONO does not guarantee completeness, accuracy, or safety of the information contained herein.
+			            Prolonged analysis is not recommended.
+			        </p>
+			    </footer>
+
+			</section>
+
+		</main>
+	</body>
+</html>

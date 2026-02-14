@@ -64,8 +64,8 @@ public class AuthController {
             us.saveUser(user);
 
             // 🔥 encode raw password before saving
+            user.setCredentials(credentials);
             credentials.setPassword(passwordEncoder.encode(credentials.getPassword()));
-
             credentials.setUser(user);
             credentials.setRole(DEFAULT_ROLE);
             cs.saveCredentials(credentials);

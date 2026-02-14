@@ -30,6 +30,7 @@ public class Creature {
 	@ManyToOne
 	@JoinColumn(name = "agent_id")
 	private User certifiedBy;
+	private String imageFileName;
 	
 	public Creature() {}
 
@@ -87,6 +88,14 @@ public class Creature {
 
 	public void setCertifiedBy(User certifiedBy) {
 		this.certifiedBy = certifiedBy;
+	}
+
+	public String getImageFileName() {
+		return imageFileName;
+	}
+
+	public void setImageFileName(String imageFileName) {
+		this.imageFileName = imageFileName;
 	}
 	
 }

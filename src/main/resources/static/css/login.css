@@ -1,0 +1,41 @@
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* --- Links --- */
+a {
+    color: #9f9f9f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+/* --- Subtle unease --- */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.015),
+        rgba(255,255,255,0.015) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    opacity: 0.15;
+}

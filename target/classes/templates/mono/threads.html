@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<title>The Something Awful</title>
 		<link rel="stylesheet" href="/css/mono/monoThreads.css">
@@ -10,7 +11,7 @@
 		<hr>
 		<main>
 			<h1 th:text="${category.name}">Category</h1>
-			<section class="newThread" sec:authorize access="hasRole('ADMIN')">
+			<section class="newThread" sec:authorize="hasAuthority('ADMIN_ROLE')">
 				<h2>New Thread</h2>
 				<form th:action="@{/category/{id}/thread/new(id=${category.id})}" method="post">
 					<label> Title
