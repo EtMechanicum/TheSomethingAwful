@@ -52,7 +52,7 @@ public class AuthConfiguration {
                     "/", "/home","/register","/login","/css/**", "/images/**", "/favicon.ico"
                 ).permitAll()
                 .requestMatchers(HttpMethod.POST, "/register", "/login").permitAll()
-                .requestMatchers(HttpMethod.GET, "/mono/**").hasAnyAuthority(ADMIN_ROLE)
+                .requestMatchers(HttpMethod.GET, "/mono/mono_agents/**").hasAnyAuthority(ADMIN_ROLE)
                 .requestMatchers(HttpMethod.POST, "/mono/**").hasAnyAuthority(ADMIN_ROLE)
                 .anyRequest().authenticated()
             )

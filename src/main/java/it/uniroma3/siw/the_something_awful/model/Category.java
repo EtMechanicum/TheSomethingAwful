@@ -7,7 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
+
+@NamedQuery(name = "Category.findAllExceptMONO",
+		query = "SELECT c FROM Category c WHERE c.name NOT IN ('MONO THREADS')"
+)
 
 @Entity
 public class Category {

@@ -1,0 +1,33 @@
+header {
+    background-color: #111;
+    border-bottom: 1px solid #1f1f1f;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+}
+
+nav .links a {
+    margin-right: 12px;
+}
+
+nav .user,
+nav .login {
+    font-size: 14px;
+}
+
+nav button {
+    background: none;
+    border: 1px solid #333;
+    color: #aaa;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    border-color: #666;
+    color: #eee;
+}

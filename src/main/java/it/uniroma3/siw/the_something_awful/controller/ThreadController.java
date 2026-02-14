@@ -95,9 +95,15 @@ public class ThreadController {
 	
 	/*Metodi relativi a MONO*/
 	
+	@GetMapping("/mono-files")
+	public String monoFiles() {
+		return "monoFiles";
+	}
+	
 	@GetMapping("/mono/official_threads") //Solo i MONO Agents possono scrivere qui
 	public String officialThreads(Model model) {
 		model.addAttribute("threads", ts.getAllOfficialThreads());
+		model.addAttribute("category", cs.getCategoryByName("MONO THREADS"));
 		return "/mono/threads";
 	}
 	

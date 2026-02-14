@@ -23,4 +23,8 @@ public class CategoryService {
 	public Category getCategoryByName(String name) {
 		return cr.findByName(name);
 	}
+	
+	public Iterable<Category> getAllCategoriesButMonoThreads() {
+		return cr.findAllExceptMONO();
+	}
 }

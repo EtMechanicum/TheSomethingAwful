@@ -16,7 +16,7 @@ public class CategoryController {
 	
 	@GetMapping("/")
 	public String home(Model model) {
-		model.addAttribute("categories", cs.getAllCategories());
+		model.addAttribute("categories", cs.getAllCategoriesButMonoThreads());
 		return "home";
 	}
 	
