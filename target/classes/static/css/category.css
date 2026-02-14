@@ -1,0 +1,141 @@
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+a {
+    color: #9f9f9f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+/* --- Thread page --- */
+
+main h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #e2e2e2;
+}
+
+/* --- New Thread section --- */
+
+.newThread {
+    background-color: #0f0f0f;
+    border: 1px solid #1e1e1e;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.newThread h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 12px;
+    color: #d0d0d0;
+}
+
+.newThread form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newThread label {
+    font-size: 14px;
+    color: #a8a8a8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.newThread input,
+.newThread textarea {
+    background-color: #0b0b0b;
+    border: 1px solid #2a2a2a;
+    color: #d6d6d6;
+    padding: 6px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.newThread textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.newThread input:focus,
+.newThread textarea:focus {
+    outline: none;
+    border-color: #555;
+    background-color: #0d0d0d;
+}
+
+.newThread button {
+    align-self: flex-start;
+    margin-top: 6px;
+    background: none;
+    border: 1px solid #3a3a3a;
+    color: #bdbdbd;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.newThread button:hover {
+    border-color: #777;
+    color: #eee;
+}
+
+/* --- Threads list --- */
+
+.threads-container {
+    margin-top: 16px;
+}
+
+.thread-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thread-list li {
+    padding: 12px 10px;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background-color 0.2s ease;
+}
+
+.thread-list li:hover {
+    background-color: #131313;
+}
+
+.thread-list h2 {
+    font-size: 17px;
+    font-weight: normal;
+    margin: 0 0 4px;
+}
+
+.thread-list span {
+    font-size: 13px;
+    color: #7d7d7d;
+}
+
+/* --- Empty state --- */
+
+.threads-container > p {
+    font-style: italic;
+    color: #777;
+}
