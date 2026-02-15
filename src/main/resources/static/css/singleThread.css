@@ -1,4 +1,4 @@
-/* --- Base --- */
+
 * {
     box-sizing: border-box;
 }
@@ -23,7 +23,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Page Title --- */
 
 main h1 {
     font-size: 24px;
@@ -32,13 +31,9 @@ main h1 {
     color: #e2e2e2;
 }
 
-/* --- Posts Container --- */
-
 .posts-container {
     margin-top: 16px;
 }
-
-/* --- Posts List --- */
 
 .post-list {
     list-style: none;
@@ -56,21 +51,17 @@ main h1 {
     background-color: #131313;
 }
 
-/* --- Post Content --- */
-
 .post-list p {
     margin: 8px 0;
     color: #d6d6d6;
 }
 
-/* --- Post Meta (type + author) --- */
 
 .post-list span {
     font-size: 13px;
     color: #7d7d7d;
 }
 
-/* --- Post Images --- */
 
 .post-list img {
     margin-bottom: 8px;
@@ -78,22 +69,16 @@ main h1 {
     background-color: #080808;
 }
 
-/* --- Empty State --- */
-
 .posts-container > p {
     font-style: italic;
     color: #777;
 }
-
-/* --- Thread Status Messages --- */
 
 main > p {
     font-style: italic;
     color: #888;
     margin: 16px 0;
 }
-
-/* --- New Reply Section --- */
 
 .newReply {
     background-color: #0f0f0f;

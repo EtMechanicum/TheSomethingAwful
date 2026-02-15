@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Welcome to The Something Awful</title>
-		<link rel="stylesheet" href="/css/navbar.css">
-	</head>
-	
-	<body>
-		<div th:replace="~{fragments/navbar :: navbar}"></div>	
-		<h1>The M.O.N.O Collective is not responsible for your future</h1>
-		<div>
-			<span>Name: </span>
-			<span th:text="${newUser.name}"></span>
-		</div>
-		<div>
-			<span>Surname: </span>
-			<span th:text="${newUser.surname}"></span>
-		</div>
-		<div>
-			<span>Email: </span>
-			<span th:text="${newUser.email}"></span>
-		</div>
-	</body>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/css/registration.css">
+	<link rel="stylesheet" href="/css/registrationSuccessful.css">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <main class="login-wrapper">
+        <section class="login-box">
+            <h1>Registration Completed</h1>
+
+            <p class="system-note">
+                The M.O.N.O. Collective is not responsible for any future outcome.
+            </p>
+
+            <div class="summary">
+                <div>
+                    <span>Nickname</span>
+                    <span th:text="${newUser.nickname}"></span>
+                </div>
+
+                <div>
+                    <span>Email</span>
+                    <span th:text="${newUser.email}"></span>
+                </div>
+            </div>
+
+            <p class="system-note">
+                This information has been archived.
+            </p>
+        </section>
+    </main>
+</body>
 </html>

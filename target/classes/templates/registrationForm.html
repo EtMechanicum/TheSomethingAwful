@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<title>Registration</title>
-		<link rel="stylesheet" href="/css/navbar.css">
-		<link rel="stylesheet" href="/css/login.css">
-	</head>
-	
-	<body>
-		<div th:replace="~{fragments/navbar :: navbar}"></div>
-		<h1>A Dreadful Registration</h1>
-		<section class="warning">
-			<h2>WARNING</h2>
-			<p>Do not provide your real name in this forum under any circumstance</p>
-		</section>
-		<section>
-			<form th:action="@{/register}" method="post">
-				<div>
-					Nickname: <span><input type="text" th:field="${newUser.nickname}"></span>
-					<!--<p th:if="${#fields.hasErrors('name')}" th:errors="${newUser.name}"></p>-->
-					Email: <span><input type="email" th:field="${newUser.email}"></span>
-				<!--	<p th:if="${#fields.hasErrors('email')}" th:errors="${newUser.email}"></p>-->
-				</div>
-				<div>
-					Username: <span><input type="text" th:field="${newCredentials.username}"></span>
-				<!--	<p th:if="${#fields.hasErrors('username')}" th:errors="${newCredentials.username}"></p>-->
-					Password: <span><input type="password" th:field="${newCredentials.password}"></span>
-				<!--	<p th:if="${#fields.hasErrors('password')}" th:errors="${newCredentials.password}"></p>-->
-				</div>
-				<button>Register</button>
-			</form>
-		</section>
-	</body>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="/css/registration.css">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <main class="login-wrapper">
+        <section class="login-box">
+            <h1>A Dreadful Registration</h1>
+
+            <section class="warning">
+                <h2>WARNING</h2>
+                <p>
+                    Do not provide your real name under any circumstance.
+                    Identity persistence is neither required nor recommended.
+                </p>
+            </section>
+
+            <form th:action="@{/register}" method="post">
+                <label>
+                    <span>Nickname</span>
+                    <input type="text" th:field="${newUser.nickname}" required>
+                </label>
+
+                <label>
+                    <span>Email</span>
+                    <input type="email" th:field="${newUser.email}" required>
+                </label>
+
+                <label>
+                    <span>Username</span>
+                    <input type="text" th:field="${newCredentials.username}" required>
+                </label>
+
+                <label>
+                    <span>Password</span>
+                    <input type="password" th:field="${newCredentials.password}" required>
+                </label>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+</body>
 </html>

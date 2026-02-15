@@ -1,4 +1,4 @@
-/* --- Base --- */
+
 * {
     box-sizing: border-box;
 }
@@ -13,7 +13,6 @@ html, body {
     line-height: 1.5;
 }
 
-/* --- Links --- */
 a {
     color: #9f9f9f;
     text-decoration: none;
@@ -24,49 +23,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Header / Nav --- */
-/*header {
-    background-color: #111;
-    border-bottom: 1px solid #1f1f1f;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 16px;
-}
-
-nav .links a {
-    margin-right: 12px;
-}
-
-nav .user,
-nav .login {
-    font-size: 14px;
-}
-
-nav button {
-    background: none;
-    border: 1px solid #333;
-    color: #aaa;
-    padding: 3px 8px;
-    cursor: pointer;
-}
-
-nav button:hover {
-    border-color: #666;
-    color: #eee;
-}*/
-
-/* --- Separator --- */
 hr {
     border: none;
     border-top: 1px solid #1c1c1c;
     margin: 0;
 }
 
-/* --- Main --- */
 main {
     padding: 24px 16px 40px;
     max-width: 900px;
@@ -81,7 +43,6 @@ h1 {
     color: #e6e6e6;
 }
 
-/* --- Categories --- */
 .category-container {
     margin-top: 10px;
 }
@@ -119,13 +80,11 @@ h1 {
     color: #7f7f7f;
 }
 
-/* --- Empty state --- */
 .category-container > p {
     font-style: italic;
     color: #777;
 }
 
-/* --- Footer --- */
 footer {
     border-top: 1px solid #1c1c1c;
     padding: 16px;
@@ -140,7 +99,6 @@ footer .warning {
     opacity: 0.85;
 }
 
-/* --- Subtle unease --- */
 body::after {
     content: "";
     position: fixed;

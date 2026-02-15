@@ -1,8 +1,4 @@
-/* ============================
-   MONO SINGLE THREAD TERMINAL
-   ============================ */
 
-/* --- Base --- */
 * {
     box-sizing: border-box;
 }
@@ -17,30 +13,24 @@ html, body {
     line-height: 1.5;
 }
 
-/* --- Layout --- */
 main {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-/* --- Dividers --- */
 hr {
     border: none;
     border-top: 1px solid #2a1414;
     margin: 28px 0;
 }
 
-/* --- Title --- */
 main h1 {
     color: #e6c2c2;
     font-weight: normal;
     letter-spacing: 0.5px;
 }
 
-/* ============================
-   POSTS CONTAINER
-   ============================ */
 
 .posts-container {
     background-color: #120909;
@@ -48,15 +38,10 @@ main h1 {
     padding: 24px;
 }
 
-/* --- Empty State --- */
 .posts-container > p {
     color: #a07070;
     font-style: italic;
 }
-
-/* ============================
-   POST LIST
-   ============================ */
 
 .post-list {
     list-style: none;
@@ -73,42 +58,30 @@ main h1 {
     border-bottom: none;
 }
 
-/* --- Post Hover --- */
 .post-list li:hover {
     background-color: #140a0a;
 }
 
-/* --- Post Image --- */
 .post-list img {
     display: block;
     margin-bottom: 12px;
     border: 1px solid #3a1f1f;
 }
 
-/* --- Post Content --- */
 .post-list p {
     color: #d2b4b4;
     margin: 8px 0 10px 0;
 }
 
-/* --- Post Metadata --- */
 .post-list span {
     font-size: 13px;
     color: #9c6f6f;
 }
 
-/* ============================
-   THREAD STATUS
-   ============================ */
-
 main > p {
     color: #c09090;
     font-style: italic;
 }
-
-/* ============================
-   REPLY SECTION
-   ============================ */
 
 .newReply {
     background-color: #120909;
@@ -116,7 +89,6 @@ main > p {
     padding: 22px;
 }
 
-/* --- Reply Title --- */
 .newReply h2 {
     margin-top: 0;
     color: #e0bcbc;
@@ -124,14 +96,12 @@ main > p {
     margin-bottom: 16px;
 }
 
-/* --- Form Layout --- */
 .newReply form {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-/* --- Label --- */
 .newReply label {
     display: flex;
     flex-direction: column;
@@ -139,7 +109,6 @@ main > p {
     color: #c4a0a0;
 }
 
-/* --- Textarea --- */
 .newReply textarea {
     background-color: #0c0606;
     border: 1px solid #4a2a2a;
@@ -156,10 +125,6 @@ main > p {
     border-color: #7a3a3a;
     background-color: #120808;
 }
-
-/* ============================
-   BUTTON
-   ============================ */
 
 .newReply button {
     align-self: flex-start;
@@ -178,10 +143,6 @@ main > p {
     color: #f0dada;
     background-color: #140a0a;
 }
-
-/* ============================
-   SELECTION
-   ============================ */
 
 ::selection {
     background-color: #5a2a2a;

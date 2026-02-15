@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Creature {
@@ -19,13 +20,17 @@ public class Creature {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@NotBlank(message = "{creature.codename}")
 	private String codeName;
+	@NotBlank(message = "{creature.name}")
 	private String name;
+	@NotBlank(message = "{creature.description}")
 	private String description;
 	@Enumerated(EnumType.STRING)
 	private ThreatLevel threatLevel;
 	@Enumerated(EnumType.STRING)
 	private List<CreatureStatus> status;
+	@NotBlank(message = "{creature.discoveredAt}")
 	private String discoveredAt;
 	@ManyToOne
 	@JoinColumn(name = "agent_id")

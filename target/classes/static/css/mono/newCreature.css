@@ -1,8 +1,4 @@
-/* ============================
-   MONO CREATURE REGISTRATION
-   ============================ */
 
-/* --- Base --- */
 * {
     box-sizing: border-box;
 }
@@ -17,14 +13,12 @@ html, body {
     line-height: 1.5;
 }
 
-/* --- Layout --- */
 main {
     max-width: 800px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-/* --- Links --- */
 a {
     color: #9f9f9f;
     text-decoration: none;
@@ -36,14 +30,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Form Container --- */
 .creature-form {
     background-color: #120909;
     border: 1px solid #3a1f1f;
     padding: 26px;
 }
 
-/* --- Title --- */
 .creature-form h2 {
     margin-top: 0;
     color: #e6c2c2;
@@ -52,14 +44,12 @@ a:hover {
     margin-bottom: 22px;
 }
 
-/* --- Form Layout --- */
 .creature-form form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* --- Labels --- */
 .creature-form label {
     display: flex;
     flex-direction: column;
@@ -68,7 +58,6 @@ a:hover {
     font-size: 14px;
 }
 
-/* --- Inputs --- */
 .creature-form input,
 .creature-form textarea,
 .creature-form select {
@@ -81,7 +70,6 @@ a:hover {
     transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-/* --- Focus State --- */
 .creature-form input:focus,
 .creature-form textarea:focus,
 .creature-form select:focus {
@@ -90,22 +78,18 @@ a:hover {
     background-color: #120808;
 }
 
-/* --- Textarea --- */
 .creature-form textarea {
     resize: vertical;
 }
 
-/* --- Placeholder --- */
 .creature-form ::placeholder {
     color: #7a5a5a;
 }
 
-/* --- Select Dropdown --- */
 .creature-form select {
     cursor: pointer;
 }
 
-/* --- Fieldset (Status) --- */
 .status-fieldset {
     border: 1px solid #3a1f1f;
     padding: 16px;
@@ -117,7 +101,6 @@ a:hover {
     color: #e0b5b5;
 }
 
-/* Checkbox layout */
 .status-fieldset label {
     flex-direction: row;
     align-items: center;
@@ -126,13 +109,11 @@ a:hover {
     margin-bottom: 6px;
 }
 
-/* --- Checkbox --- */
 .status-fieldset input[type="checkbox"] {
     accent-color: #7a3a3a;
     cursor: pointer;
 }
 
-/* --- Button --- */
 .creature-form button {
     margin-top: 10px;
     padding: 12px;
@@ -151,7 +132,6 @@ a:hover {
     background-color: #140a0a;
 }
 
-/* --- Selection --- */
 ::selection {
     background-color: #5a2a2a;
     color: #f0dada;

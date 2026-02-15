@@ -1,4 +1,4 @@
-/* --- Base --- */
+
 * {
     box-sizing: border-box;
 }
@@ -23,16 +23,12 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Thread page --- */
-
 main h1 {
     font-size: 24px;
     font-weight: normal;
     margin-bottom: 20px;
     color: #e2e2e2;
 }
-
-/* --- New Thread section --- */
 
 .newThread {
     background-color: #0f0f0f;
@@ -100,8 +96,6 @@ main h1 {
     color: #eee;
 }
 
-/* --- Threads list --- */
-
 .threads-container {
     margin-top: 16px;
 }
@@ -132,8 +126,6 @@ main h1 {
     font-size: 13px;
     color: #7d7d7d;
 }
-
-/* --- Empty state --- */
 
 .threads-container > p {
     font-style: italic;

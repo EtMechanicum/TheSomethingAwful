@@ -1,8 +1,4 @@
-/* ============================
-   MONO FILES – HOME TERMINAL
-   ============================ */
 
-/* --- Base --- */
 * {
     box-sizing: border-box;
 }
@@ -17,14 +13,12 @@ html, body {
     line-height: 1.5;
 }
 
-/* --- Layout --- */
 main {
     max-width: 900px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-/* --- Links --- */
 a {
     color: #9f9f9f;
     text-decoration: none;
@@ -36,7 +30,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Header Terminal --- */
 header {
     background-color: #120909;
     border: 1px solid #3a1f1f;
@@ -55,7 +48,6 @@ header p {
     color: #d2b4b4;
 }
 
-/* --- Sections --- */
 section {
     background-color: #0f0808;
     border: 1px solid #2f1818;
@@ -83,12 +75,10 @@ section h2 a:hover {
     color: #f2dede;
 }
 
-/* --- Section Text --- */
 section p {
     color: #c8a8a8;
 }
 
-/* --- Warning Blocks --- */
 .warning {
     margin-top: 14px;
     padding: 10px 12px;
@@ -98,7 +88,6 @@ section p {
     font-size: 14px;
 }
 
-/* --- Footer --- */
 footer {
     margin-top: 50px;
     padding-top: 20px;
@@ -112,7 +101,6 @@ footer .warning {
     padding-left: 10px;
 }
 
-/* --- Subtle Terminal Feeling --- */
 ::selection {
     background-color: #5a2a2a;
     color: #f0dada;

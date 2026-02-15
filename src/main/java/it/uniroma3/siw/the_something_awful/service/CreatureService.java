@@ -27,4 +27,8 @@ public class CreatureService {
 	public boolean ExistsByCodeNameAndName(String codeName, String name) {
 		return cr.existsByCodeNameAndName(codeName, name);
 	}
+	
+	public void deleteCreature(Creature creature) {
+		cr.delete(creature);
+	}
 }

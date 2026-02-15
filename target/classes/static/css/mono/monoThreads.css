@@ -1,8 +1,4 @@
-/* ============================
-   MONO THREADS – OFFICIAL AREA
-   ============================ */
 
-   /* --- Base --- */
    * {
        box-sizing: border-box;
    }
@@ -17,7 +13,6 @@
        line-height: 1.5;
    }
 
-   /* --- Links --- */
    a {
        color: #9f9f9f;
        text-decoration: none;
@@ -28,13 +23,10 @@
        text-decoration: underline;
    }
    
-/* Titolo categoria */
 main h1 {
     color: #e6c2c2;
     letter-spacing: 0.5px;
 }
-
-/* --- New Thread (ADMIN only) --- */
 
 .newThread {
     background-color: #120909;
@@ -77,8 +69,6 @@ main h1 {
     color: #f0dada;
 }
 
-/* --- Threads list --- */
-
 .thread-list li {
     border-bottom: 1px solid #2a1414;
 }
@@ -99,8 +89,6 @@ main h1 {
 .thread-list span {
     color: #9c6f6f;
 }
-
-/* --- Empty state --- */
 
 .threads-container > p {
     color: #a07070;

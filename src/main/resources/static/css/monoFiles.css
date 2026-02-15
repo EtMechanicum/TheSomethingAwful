@@ -12,7 +12,6 @@ html, body {
     line-height: 1.5;
 }
 
-/* --- Links --- */
 a {
     color: #9f9f9f;
     text-decoration: none;
@@ -23,7 +22,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Main --- */
 main {
     padding: 24px 16px 40px;
     max-width: 900px;
@@ -38,7 +36,6 @@ h1 {
     color: #e6e6e6;
 }
 
-/* footer */
 footer {
     border-top: 1px solid #1c1c1c;
     padding: 16px;
@@ -53,7 +50,6 @@ footer .warning {
     opacity: 0.85;
 }
 
-/* --- Subtle unease --- */
 body::after {
     content: "";
     position: fixed;

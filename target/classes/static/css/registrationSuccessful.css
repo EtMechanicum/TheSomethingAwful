@@ -1,0 +1,30 @@
+
+.system-note {
+    font-size: 13px;
+    color: #8a8a8a;
+    font-style: italic;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.summary div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #1e1e1e;
+    padding-bottom: 4px;
+}
+
+.summary span:first-child {
+    color: #9a9a9a;
+}
+
+.summary span:last-child {
+    color: #d0d0d0;
+}

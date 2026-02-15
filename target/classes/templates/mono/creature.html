@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<title th:text="${creature.codeName}">Creature name</title>
 		<link rel="stylesheet" href="/css/mono/creature.css">
@@ -79,6 +80,9 @@
 			                Image quality degraded. Interpretation discouraged.
 			            </figcaption>
 			        </figure>
+					<form sec:authorize="hasAuthority('ADMIN')" th:action="@{/mono/anomaly/{id}/delete(id=${creature.id})}" method="post">
+						<button>Delete dossier</button>
+					</form>
 			    </section>
 
 			    <hr>

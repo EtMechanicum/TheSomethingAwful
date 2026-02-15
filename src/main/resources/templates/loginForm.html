@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Login</title>
-		<link rel="stylesheet" href="/css/navbar.css">
-		<link rel="stylesheet" href="/css/login.css">
-	</head>
-	
-	<body>
-		<div th:replace="fragments/navbar :: navbar"></div>	
-		<div class="login-page">
-		    <h1>Login</h1>
-		    <form th:action="@{/login}" method="POST">
-		        <div>
-		            <span>Username:</span>
-		            <span><input name="username" type="text" required /></span>
-		        </div>
-		        <div>
-		            <span>Password:</span>
-		            <span><input name="password" type="password" required /></span>
-		        </div>
-				<div>
-					<span th:if="${param.error != null}">Wrong username or password</span>
-				</div>
-		        <div>
-		            <span><button type="submit">Login</button></span>
-		        </div>
-		    </form>
-		    <div>
-		        <a th:href="@{/register}">Register</a>
-		    </div>
-		</div>
-	</body>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <main class="login-wrapper">
+        <section class="login-box">
+            <h1>Login</h1>
+
+            <form th:action="@{/login}" method="POST">
+                <label>
+                    <span>Username</span>
+                    <input name="username" type="text" required />
+                </label>
+
+                <label>
+                    <span>Password</span>
+                    <input name="password" type="password" required />
+                </label>
+
+                <p class="login-error" th:if="${param.error != null}">
+                    Authentication failed.
+                </p>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <div class="login-footer">
+                <a th:href="@{/register}">Request access</a>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

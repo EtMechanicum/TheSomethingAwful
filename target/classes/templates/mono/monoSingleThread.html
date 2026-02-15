@@ -15,7 +15,7 @@
 				  <p th:if="${#lists.isEmpty(thread.posts)}">No replies yet</p>	
 				  <ul class="post-list">
 				    <li th:each="post : ${thread.posts}">
-						<div th:if="${post.imageFileName}">
+						<div th:if="${post.imageFileName != null and !#strings.isEmpty(post.imageFileName)}">
 							<img th:src="@{'/images/threads/' + ${post.imageFileName}}" width="400px" height="300px">
 						</div>
 				        <p th:text="${post.content}"></p>
