@@ -29,9 +29,10 @@
 			<p th:if="${thread.status.name() == 'DELETED' }">This thread has been deleted</p>
 			<section class="newReply" th:if="${thread.status.name() == 'OPEN'}">
 				<h2>Reply to this thread</h2>
-				<form th:action="@{/threads/{id}/posts/new(id=${thread.id})}" method="post">
+				<form th:action="@{/threads/{id}/posts/new(id=${thread.id})}" th:object="${newPost}" method="post">
 					<label> Reply
-						<textarea name="postContent"></textarea>
+						<textarea name="content" th:field="*{content}"></textarea>
+						<span th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
 					</label>
 					<button>Post</button>
 				</form>

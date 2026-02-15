@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.PathVariable;
-
 import it.uniroma3.siw.the_something_awful.model.Category;
 import it.uniroma3.siw.the_something_awful.service.CategoryService;
 import it.uniroma3.siw.the_something_awful.service.CredentialsService;
@@ -89,18 +86,24 @@ public class ThreadController {
 	@GetMapping("/threads/{id}")
 	public String singleThread(@PathVariable ("id") Long threadId, Model model) {
 		model.addAttribute("thread", ts.getThreadById(threadId));
+		model.addAttribute("newPost", new Post());
 		return "singleThread";
 	}
 	
 	@PostMapping("/threads/{id}/posts/new") 
-	public String newPost(@PathVariable("id") Long threadId, @RequestParam String postContent) {
+	public String newPost(@PathVariable("id") Long threadId,@Valid @ModelAttribute Post newPost, 
+			BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("newPost", newPost);
+			model.addAttribute("thread", ts.getThreadById(threadId));
+			return "/singleThread";
+		}
 		/*Per ottenere l'user*/
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
 		Credentials creatorCredentials = credServ.getCredentialsByUsername(userDetails.getUsername());
 		/*Per ottenere il thread*/
 		Thread thread = ts.getThreadById(threadId);
 		Post post = new Post();
-		post.setContent(postContent);
 		post.setCreatedAt(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
 		post.setAuthor(creatorCredentials.getUser());
 		post.setPostType(REPLY);
@@ -123,45 +126,59 @@ public class ThreadController {
 	public String officialThreads(Model model) {
 		model.addAttribute("threads", ts.getAllOfficialThreads());
 		model.addAttribute("category", cs.getCategoryByName("MONO THREADS"));
+		model.addAttribute("threadPostDTO", new ThreadPostDTO());
 		return "/mono/threads";
 	}
-	
+	 
+	/*Per nuovo official thread*/
 	@PostMapping("/mono/official_threads/new")
-	public String newOfficialThread(@RequestParam String imageFileName,
-			@RequestParam String threadTitle, @RequestParam String postContent) {
+	public String newOfficialThread(@Valid @ModelAttribute("threadPostDTO") ThreadPostDTO form,
+	        BindingResult bindingResult, Model model) {
 		Category category = cs.getCategoryByName("MONO");
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
 		Credentials creatorCredentials = credServ.getCredentialsByUsername(userDetails.getUsername());
 		/*Thread fields*/
-		Thread thread = new Thread();
-		thread.setTitle(threadTitle);
-		thread.setCategory(category);
-		thread.setCreatedAt(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
-		thread.setOfficial(true);
-		thread.setCreatedBy(creatorCredentials.getUser());
-		/*Post fields*/
-		Post post = new Post();
-		post.setContent(postContent);
-		post.setCreatedAt(thread.getCreatedAt());
-		post.setAuthor(thread.getCreatedBy());
-		post.setThread(thread);
-		post.setPostType(OP);
-		post.setImageFileName(imageFileName);
-		/*Save*/
-		thread.getPosts().add(post);
-		ts.saveThread(thread);
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("category", category);
+			model.addAttribute("threadPostDTO", form);
+	        return "/mono/threads";
+	    }
+		
+	    Thread thread = new Thread();
+	    thread.setTitle(form.getThreadTitle());
+	    thread.setCategory(category);
+	    thread.setCreatedAt(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
+	    thread.setOfficial("ADMIN".equals(creatorCredentials.getRole()));
+	    thread.setCreatedBy(creatorCredentials.getUser());
+
+	    Post post = new Post();
+	    post.setContent(form.getPostContent());
+	    post.setCreatedAt(thread.getCreatedAt());
+	    post.setAuthor(thread.getCreatedBy());
+	    post.setThread(thread);
+	    post.setPostType(OP);
+	    post.setImageFileName(form.getPostImageFileName());
+
+	    thread.getPosts().add(post);
+	    ts.saveThread(thread);
+	    
 		return "redirect:/mono/official_threads/" + thread.getId();
 	}
-	
+	/*Nuovo post*/
 	@PostMapping("/mono/official_threads/{id}/posts/new") 
-	public String newOfficialThreadPost(@PathVariable("id") Long threadId, @RequestParam String postContent) {
+	public String newOfficialThreadPost(@PathVariable("id") Long threadId,@Valid @ModelAttribute Post newPost, 
+				BindingResult bindingResult, Model model) {
+		if(bindingResult.hasErrors()) {
+			model.addAttribute("newPost", newPost);
+			model.addAttribute("thread", ts.getThreadById(threadId));
+			return "/mono/monoSingleThread";
+		}
 		/*Per ottenere l'user*/
 		UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
 		Credentials creatorCredentials = credServ.getCredentialsByUsername(userDetails.getUsername());
 		/*Per ottenere il thread*/
 		Thread thread = ts.getThreadById(threadId);
 		Post post = new Post();
-		post.setContent(postContent);
 		post.setCreatedAt(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
 		post.setAuthor(creatorCredentials.getUser());
 		post.setPostType(REPLY);
@@ -176,7 +193,8 @@ public class ThreadController {
 	@GetMapping("/mono/official_threads/{id}")
 	public String singleOfficialThread(@PathVariable ("id") Long threadId, Model model) {
 		model.addAttribute("thread", ts.getThreadById(threadId));
-		return "singleThread";
+		model.addAttribute("newPost", new Post());
+		return "/mono/monoSingleThread";
 	}
 	
 }

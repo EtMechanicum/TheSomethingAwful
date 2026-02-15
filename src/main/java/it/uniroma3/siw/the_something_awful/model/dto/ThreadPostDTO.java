@@ -4,9 +4,9 @@ import jakarta.validation.constraints.NotBlank;
 
 public class ThreadPostDTO {
 	
-	@NotBlank
+	@NotBlank(message = "{DTO.threadTitle}")
 	private String threadTitle;
-	@NotBlank
+	@NotBlank(message = "{DTO.postContent}")
 	private String postContent;
 	private String postImageFileName;
 	

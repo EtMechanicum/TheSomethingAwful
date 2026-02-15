@@ -18,10 +18,11 @@
 					</div>
 					<label> Title
 						<input type="text" name="threadTitle" th:field="*{threadTitle}">
-						<span th:if="${#fields.hasErrors('title')}" th:errors="*{threadPostDTO.threadTitle}">
+						<span th:if="${#fields.hasErrors('threadTitle')}" th:errors="*{threadTitle}">
 					</label>
 					<label> Body
 						<textarea name="postContent" th:field="*{postContent}"></textarea>
+						<span th:if="${#fields.hasErrors('postContent')}" th:errors="*{postContent}">
 					</label>
 					<label> Add an image (optional)
 						<input type="text"name="imageFileName" th:field="*{postImageFileName}">

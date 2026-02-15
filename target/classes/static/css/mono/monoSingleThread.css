@@ -1,0 +1,189 @@
+/* ============================
+   MONO SINGLE THREAD TERMINAL
+   ============================ */
+
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* --- Layout --- */
+main {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* --- Dividers --- */
+hr {
+    border: none;
+    border-top: 1px solid #2a1414;
+    margin: 28px 0;
+}
+
+/* --- Title --- */
+main h1 {
+    color: #e6c2c2;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+/* ============================
+   POSTS CONTAINER
+   ============================ */
+
+.posts-container {
+    background-color: #120909;
+    border: 1px solid #3a1f1f;
+    padding: 24px;
+}
+
+/* --- Empty State --- */
+.posts-container > p {
+    color: #a07070;
+    font-style: italic;
+}
+
+/* ============================
+   POST LIST
+   ============================ */
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid #2a1414;
+}
+
+.post-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- Post Hover --- */
+.post-list li:hover {
+    background-color: #140a0a;
+}
+
+/* --- Post Image --- */
+.post-list img {
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid #3a1f1f;
+}
+
+/* --- Post Content --- */
+.post-list p {
+    color: #d2b4b4;
+    margin: 8px 0 10px 0;
+}
+
+/* --- Post Metadata --- */
+.post-list span {
+    font-size: 13px;
+    color: #9c6f6f;
+}
+
+/* ============================
+   THREAD STATUS
+   ============================ */
+
+main > p {
+    color: #c09090;
+    font-style: italic;
+}
+
+/* ============================
+   REPLY SECTION
+   ============================ */
+
+.newReply {
+    background-color: #120909;
+    border: 1px solid #3a1f1f;
+    padding: 22px;
+}
+
+/* --- Reply Title --- */
+.newReply h2 {
+    margin-top: 0;
+    color: #e0bcbc;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+/* --- Form Layout --- */
+.newReply form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* --- Label --- */
+.newReply label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #c4a0a0;
+}
+
+/* --- Textarea --- */
+.newReply textarea {
+    background-color: #0c0606;
+    border: 1px solid #4a2a2a;
+    color: #e0cccc;
+    padding: 10px;
+    font-family: inherit;
+    min-height: 120px;
+    resize: vertical;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.newReply textarea:focus {
+    outline: none;
+    border-color: #7a3a3a;
+    background-color: #120808;
+}
+
+/* ============================
+   BUTTON
+   ============================ */
+
+.newReply button {
+    align-self: flex-start;
+    padding: 10px 18px;
+    background-color: transparent;
+    border: 1px solid #6a3a3a;
+    color: #ddbcbc;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.newReply button:hover {
+    border-color: #a05050;
+    color: #f0dada;
+    background-color: #140a0a;
+}
+
+/* ============================
+   SELECTION
+   ============================ */
+
+::selection {
+    background-color: #5a2a2a;
+    color: #f0dada;
+}
