@@ -23,4 +23,8 @@ public class CreatureService {
 	public Iterable<Creature> getAllCreatures() {
 		return cr.findAll();
 	}
+	
+	public boolean ExistsByCodeNameAndName(String codeName, String name) {
+		return cr.existsByCodeNameAndName(codeName, name);
+	}
 }

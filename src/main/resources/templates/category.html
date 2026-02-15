@@ -12,15 +12,19 @@
 			<h1 th:text="${category.name}">Category</h1>
 			<section class="newThread">
 				<h2>New Thread</h2>
-				<form th:action="@{/category/{id}/thread/new(id=${category.id})}" method="post">
+				<form th:action="@{/category/{id}/thread/new(id=${category.id})}" th:object="${threadPostDTO}" method="post">
+					<div th:if="${#fields.hasGlobalErrors()}">
+						<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" style="color: red;">...</p> 
+					</div>
 					<label> Title
-						<input type="text" name="threadTitle">
+						<input type="text" name="threadTitle" th:field="*{threadTitle}">
+						<span th:if="${#fields.hasErrors('title')}" th:errors="*{threadPostDTO.threadTitle}">
 					</label>
 					<label> Body
-						<textarea name="postContent"></textarea>
+						<textarea name="postContent" th:field="*{postContent}"></textarea>
 					</label>
 					<label> Add an image (optional)
-						<input type="text"name="imageFileName">
+						<input type="text"name="imageFileName" th:field="*{postImageFileName}">
 					</label>
 					<button>Post</button>
 				</form>

@@ -20,7 +20,6 @@ public class Thread {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String title;
-	//private Category 
 	private LocalDateTime createdAt;
 	private boolean isOfficial;
 	@ManyToOne

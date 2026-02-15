@@ -2,6 +2,7 @@ package it.uniroma3.siw.the_something_awful.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Post {
 	private Thread thread;
 	private String postType;
 	private boolean deleted = false;
+	@Nullable
 	private String imageFileName;
 	
 	public Post() {}

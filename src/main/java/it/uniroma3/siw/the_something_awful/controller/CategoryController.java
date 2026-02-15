@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import it.uniroma3.siw.the_something_awful.model.dto.ThreadPostDTO;
 import it.uniroma3.siw.the_something_awful.service.CategoryService;
 
 @Controller
@@ -23,6 +24,7 @@ public class CategoryController {
 	@GetMapping("/category/{id}/threads")
 	public String category(@PathVariable Long id, Model model) {
 		model.addAttribute("category", cs.getCategoryById(id));
+		model.addAttribute("threadPostDTO", new ThreadPostDTO());
 		return "category";
 	}
 	
