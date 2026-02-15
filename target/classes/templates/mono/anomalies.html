@@ -17,7 +17,7 @@
 			<section>
 				<ul th:if="${!#lists.isEmpty(anomalies)}">
 					<li th:each="item : ${anomalies}">
-						<h2><a th:text="${item.codeName}" th:href="@{/mono/anomalies/{id}(id=${item.id})}">Anomaly codename</a></h2>
+						<h2><a th:text="${item.codeName}" th:href="@{/mono/anomaly/{id}(id=${item.id})}">Anomaly codename</a></h2>
 					</li>
 				</ul>
 			</section>

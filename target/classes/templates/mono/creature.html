@@ -3,7 +3,7 @@
 	<head>
 		<title th:text="${creature.codeName}">Creature name</title>
 		<link rel="stylesheet" href="/css/mono/creature.css">
-		<link rel="stylesheet" jref="/css/navbar.css">
+		<link rel="stylesheet" href="/css/navbar.css">
 	</head>
 	
 	<body>
@@ -61,7 +61,7 @@
 			        <p>
 			            File reviewed and certified by:
 			            <span th:if="${creature.certifiedBy}"
-			                  th:text="${creature.certifiedBy.username}">
+			                  th:text="${creature.certifiedBy.nickname}">
 			                MONO Agent
 			            </span>
 			            <span th:unless="${creature.certifiedBy}">
@@ -73,7 +73,7 @@
 			    <section class="dossier-section" th:if="${creature.imageFileName}">
 			        <h2>Visual Reference</h2>
 			        <figure class="creature-image">
-			            <img th:src="@{/images/{img}(img=${creature.imageFileName})}"
+			            <img th:src="@{/images/creatures/{img}(img=${creature.imageFileName})}"
 			                 alt="Visual reference unavailable">
 			            <figcaption>
 			                Image quality degraded. Interpretation discouraged.

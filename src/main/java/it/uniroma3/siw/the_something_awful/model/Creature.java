@@ -97,5 +97,13 @@ public class Creature {
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
+
+	public List<CreatureStatus> getStatus() {
+		return status;
+	}
+
+	public void setStatus(List<CreatureStatus> status) {
+		this.status = status;
+	}
 	
 }

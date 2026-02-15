@@ -12,12 +12,13 @@
 			<section class="creature-form">
 			    <h2>Register Creature</h2>
 
-			    <form th:action="@{/creatures/new}" method="post">
+			    <form th:action="@{/mono/anomaly/new}" th:object="${newCreature}" method="post">
 
 			        <label>
 			            Code Name
 			            <input type="text"
 			                   name="codeName"
+							   th:field="*{codeName}"
 			                   placeholder="e.g. M.O.N.O.-014"
 			                   required>
 			        </label>
@@ -26,12 +27,14 @@
 			            Designation
 			            <input type="text"
 			                   name="name"
+							   th:field="*{name}"
 			                   placeholder="Optional / Known identifier">
 			        </label>
 
 			        <label>
 			            Description
 			            <textarea name="description"
+								  th:field="*{description}"
 			                      rows="6"
 			                      placeholder="Observed traits, behavior, anomalies..."
 			                      required></textarea>
@@ -39,8 +42,8 @@
 
 			        <label>
 			            Threat Level
-			            <select name="threatLevel" required>
-			                <option value="" disabled selected>— select level —</option>
+			            <select name="threatLevel" th:field="*{threatLevel}" required>
+			                <option value="" disabled selected>— select threat level —</option>
 			                <option th:each="level : ${threatLevels}"
 			                        th:value="${level}"
 			                        th:text="${level}">
@@ -48,21 +51,24 @@
 			            </select>
 			        </label>
 
-			        <fieldset class="status-fieldset">
-			            <legend>Current Status</legend>
+					<fieldset class="status-fieldset">
+					    <legend>Current Status</legend>
 
-			            <label th:each="st : ${creatureStatuses}">
-			                <input type="checkbox"
-			                       name="status"
-			                       th:value="${st}">
-			                <span th:text="${st}"></span>
-			            </label>
-			        </fieldset>
+					    <label th:each="st : ${creatureStatuses}">
+					        <input type="checkbox"
+					               th:field="*{status}"
+					               th:value="${st}" />
+					        <span th:text="${st}"></span>
+					    </label>
+
+					</fieldset>
+
 
 			        <label>
 			            Discovered At
 			            <input type="text"
 			                   name="discoveredAt"
+							   th:field="*{discoveredAt}"
 			                   placeholder="Location / date / incident reference">
 			        </label>
 
@@ -70,6 +76,7 @@
 			            Image Reference
 			            <input type="text"
 			                   name="imageFileName"
+							   th:field="*{imageFileName}"
 			                   placeholder="filename.ext (if available)">
 			        </label>
 

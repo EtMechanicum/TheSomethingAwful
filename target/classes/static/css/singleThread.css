@@ -1,0 +1,157 @@
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+a {
+    color: #9f9f9f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+/* --- Page Title --- */
+
+main h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #e2e2e2;
+}
+
+/* --- Posts Container --- */
+
+.posts-container {
+    margin-top: 16px;
+}
+
+/* --- Posts List --- */
+
+.post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.post-list li {
+    padding: 14px 12px;
+    border-bottom: 1px solid #1a1a1a;
+    transition: background-color 0.2s ease;
+}
+
+.post-list li:hover {
+    background-color: #131313;
+}
+
+/* --- Post Content --- */
+
+.post-list p {
+    margin: 8px 0;
+    color: #d6d6d6;
+}
+
+/* --- Post Meta (type + author) --- */
+
+.post-list span {
+    font-size: 13px;
+    color: #7d7d7d;
+}
+
+/* --- Post Images --- */
+
+.post-list img {
+    margin-bottom: 8px;
+    border: 1px solid #1f1f1f;
+    background-color: #080808;
+}
+
+/* --- Empty State --- */
+
+.posts-container > p {
+    font-style: italic;
+    color: #777;
+}
+
+/* --- Thread Status Messages --- */
+
+main > p {
+    font-style: italic;
+    color: #888;
+    margin: 16px 0;
+}
+
+/* --- New Reply Section --- */
+
+.newReply {
+    background-color: #0f0f0f;
+    border: 1px solid #1e1e1e;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.newReply h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 12px;
+    color: #d0d0d0;
+}
+
+.newReply form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newReply label {
+    font-size: 14px;
+    color: #a8a8a8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.newReply textarea {
+    background-color: #0b0b0b;
+    border: 1px solid #2a2a2a;
+    color: #d6d6d6;
+    padding: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    min-height: 90px;
+    resize: vertical;
+}
+
+.newReply textarea:focus {
+    outline: none;
+    border-color: #555;
+    background-color: #0d0d0d;
+}
+
+.newReply button {
+    align-self: flex-start;
+    margin-top: 6px;
+    background: none;
+    border: 1px solid #3a3a3a;
+    color: #bdbdbd;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.newReply button:hover {
+    border-color: #777;
+    color: #eee;
+}

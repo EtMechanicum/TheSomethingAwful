@@ -31,3 +31,13 @@ nav button:hover {
     border-color: #666;
     color: #eee;
 }
+
+a {
+    color: #9f9f9f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
