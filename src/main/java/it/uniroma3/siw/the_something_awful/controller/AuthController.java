@@ -48,7 +48,7 @@ public class AuthController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = cs.getCredentialsByUsername(userDetails.getUsername());
     	if (credentials.getRole().equals("ADMIN")) {
-            return "/admin/adminHome";
+            return "/mono/mono_home";
         }
         return "redirect:/";
     }

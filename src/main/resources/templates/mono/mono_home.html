@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The M.O.N.O. Files</title>
+	<link rel="stylesheet" href="/css/navbar.css">
+	<link rel="stylesheet" href="/css/mono/mono_home.css">
+</head>
+<body>
+	<div th:replace="~{fragments/navbar :: navbar}"></div>
+	<main>
+	    <header>
+	        <h1>M.O.N.O.</h1>
+	        <p>
+				Welcome home, Agent.
+
+				This terminal exists for administrative and operational oversight within the M.O.N.O. Collective.
+				Your presence here is logged, expected, and continuously monitored.
+
+				You are not here to understand. You are here to observe, record, and comply.
+
+				M.O.N.O. retains partial awareness of the operational field.
+				You retain only what is necessary.
+
+				The records accessible from this interface may contain structural inconsistencies, redacted presences, or events without stable causality.
+				Exposure is considered part of duty.
+
+				If you experience uncertainty, continue.
+				If you experience recognition, report nothing unless instructed.
+
+				Remain alert to your surroundings.
+				Remain aware of yourself.
+				Do not assume you are alone.
+	        </p>
+	    </header>
+	
+	    <section>
+	        <h2><a th:href="@{/mono/anomalies}">ANOMALIES</a></h2>
+	        <p>
+	            All anomalies listed have passed baseline verification by active M.O.N.O. Agents.  
+	            Missing data is intentional.  
+	            Some anomalies do not require observation to persist.  
+	            Interaction outside directive parameters is forbidden.  
+	            Extended review may alter perception thresholds.  
+	        </p>
+	        <p class="warning">
+	            Notice: Observation may be reciprocal.
+	        </p>
+	    </section>
+	
+	    <section>
+	        <h2><a th:href="@{/mono/official_threads}">OFFICIAL THREADS</a></h2>
+	        <p>
+	            These channels contain sanctioned communications between Agents and oversight divisions.  
+	            Content may appear incomplete, contradictory, or contextually unstable by design.  
+	            Viewing access does not equal clearance for action.  
+	            Threads may change without record of change.  
+	        </p>
+	        <p class="warning">
+	            Advisory: Prolonged exposure is discouraged unless operationally required.
+	        </p>
+	    </section>
+	</main>
+    <footer>
+        <p class="warning">
+            “You are authorized to see. Not to know.”  
+            — Directive 47/12, M.O.N.O. Operational Oversight
+        </p>
+    </footer>
+</body>
+</html>

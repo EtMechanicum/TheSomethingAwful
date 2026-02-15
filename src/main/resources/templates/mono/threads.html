@@ -11,9 +11,9 @@
 		<hr>
 		<main>
 			<h1 th:text="${category.name}">Category</h1>
-			<section class="newThread" sec:authorize="hasAuthority('ADMIN_ROLE')">
+			<section class="newThread" sec:authorize="hasAuthority('ADMIN')">
 				<h2>New Thread</h2>
-				<form th:action="@{/category/{id}/thread/new(id=${category.id})}" method="post">
+				<form th:action="@{/mono/official_threads/new}" method="post">
 					<label> Title
 						<input type="text" name="threadTitle">
 					</label>
@@ -30,7 +30,7 @@
 			<section class="threads-container">
 				<p th:if="${#lists.isEmpty(category.threads)}">No threads to show</p>	
 				  <ul class="thread-list">
-				    <li th:each="thread : ${category.threads}">
+				    <li th:each="thread : ${threads}">
 				      <h2>
 				        <a th:href="@{/threads/{id}(id=${thread.id})}"
 				           th:text="${thread.title}">

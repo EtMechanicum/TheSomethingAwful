@@ -90,7 +90,7 @@ public class ThreadController {
 		thread.getPosts().add(post);
 		/*Salvo Thread perché il cascade per Post*/
 		ts.saveThread(thread);
-		return "redirect:/thread/" + threadId;
+		return "redirect:/threads/" + threadId;
 	}
 	
 	/*Metodi relativi a MONO*/

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+	<head>
+		<link rel="stylesheet" href="/css/home.css">
+		<link rel="stylesheet" href="/css/navbar.css">
+	</head>
+	
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+		<h1>ANOMALIES</h1>
+		<main>
+			<section class="insertAnomalie" sec:authorize="hasAuthority('ADMIN')">
+				<h2>Got news?</h2>
+				<a href="/mono/anomaly/new">Yes</a>
+			</section>
+			<section>
+				<ul th:if="${!#lists.isEmpty(anomalies)}">
+					<li th:each="item : ${anomalies}">
+						<h2><a th:text="${item.codeName}" th:href="@{/mono/anomalies/{id}(id=${item.id})}">Anomaly codename</a></h2>
+					</li>
+				</ul>
+			</section>
+			<footer>
+			    <p class="warning">
+			        “You are authorized to see. Not to know.”  
+			        — Directive 47/12, M.O.N.O. Operational Oversight
+			    </p>
+			</footer>
+		</main>
+	</body>
+</html>

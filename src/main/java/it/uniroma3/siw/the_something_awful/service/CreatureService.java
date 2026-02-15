@@ -19,4 +19,8 @@ public class CreatureService {
 	public Creature getCreatureById(Long id) {
 		return cr.findById(id).get();
 	}
+	
+	public Iterable<Creature> getAllCreatures() {
+		return cr.findAll();
+	}
 }

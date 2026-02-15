@@ -1,0 +1,119 @@
+/* ============================
+   MONO FILES – HOME TERMINAL
+   ============================ */
+
+/* --- Base --- */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0b0b;
+    color: #cfcfcf;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* --- Layout --- */
+main {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* --- Links --- */
+a {
+    color: #9f9f9f;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+/* --- Header Terminal --- */
+header {
+    background-color: #120909;
+    border: 1px solid #3a1f1f;
+    padding: 24px;
+    margin-bottom: 36px;
+}
+
+header h1 {
+    margin-top: 0;
+    color: #e6c2c2;
+    letter-spacing: 0.5px;
+    font-weight: normal;
+}
+
+header p {
+    color: #d2b4b4;
+}
+
+/* --- Sections --- */
+section {
+    background-color: #0f0808;
+    border: 1px solid #2f1818;
+    padding: 20px;
+    margin-bottom: 28px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+section:hover {
+    border-color: #4a2626;
+    background-color: #140a0a;
+}
+
+section h2 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+section h2 a {
+    color: #e0bcbc;
+    letter-spacing: 0.4px;
+}
+
+section h2 a:hover {
+    color: #f2dede;
+}
+
+/* --- Section Text --- */
+section p {
+    color: #c8a8a8;
+}
+
+/* --- Warning Blocks --- */
+.warning {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-left: 2px solid #7a3a3a;
+    color: #d9b0b0;
+    background-color: #120808;
+    font-size: 14px;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #2a1414;
+}
+
+footer .warning {
+    border-left: 2px solid #5a2a2a;
+    color: #caa0a0;
+    background-color: transparent;
+    padding-left: 10px;
+}
+
+/* --- Subtle Terminal Feeling --- */
+::selection {
+    background-color: #5a2a2a;
+    color: #f0dada;
+}
